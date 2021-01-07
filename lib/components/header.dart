@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -42,7 +43,7 @@ class Header extends StatelessWidget {
           kDivider,
           Expanded(
               child: Text(
-            "SM_RU",
+            "ONLINE NOW 42",
             textAlign: TextAlign.center,
           )),
           kDivider,
@@ -52,10 +53,11 @@ class Header extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 buildInfo(context,
-                    text: "my sales: 98147/105000", percentage: 95.1),
-                buildInfo(context, text: "my orders: 95/100", percentage: 93.8),
+                    text: "Sale today: 98147/105000", percentage: 95.1),
                 buildInfo(context,
-                    text: "average ord: 1033/1050", percentage: 95.1),
+                    text: "Money Today: 95/100", percentage: 93.8),
+                buildInfo(context,
+                    text: "Online today: 1033/1050", percentage: 95.1),
               ],
             ),
           ),
@@ -80,14 +82,9 @@ class Header extends StatelessWidget {
           ),
           kDivider,
           // Text(auth.user.displayName),
-          Text("Test Name"),
+          //  FirebaseAuth.instance.currentUser.email
+          Text('TEST USER'),
           SizedBox(width: kDefaultPadding),
-          InkWell(
-            onTap: () => auth.logout(),
-            child: CircleAvatar(
-              backgroundImage: AssetImage("assets/images/user.png"),
-            ),
-          ),
         ],
       ),
     );

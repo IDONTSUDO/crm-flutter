@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jetti/controllers/router.controller.dart';
+import 'package:jetti/screens/dashboard/dashboard_screen.dart';
+import 'package:jetti/screens/message/message_screen.dart';
+import 'package:jetti/screens/order/order_screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../constants.dart';
@@ -10,39 +14,58 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 230,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: const BorderRadius.all(Radius.circular(13)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(kDefaultPadding),
-            child: WebsafeSvg.asset("assets/icons/Jetti CRM logo.svg",
-                height: 30, width: 70),
-          ),
-          SideMenuItem(
-            svgSrc: "assets/icons/local_grocery_store.svg",
-            text: "Order List",
-            press: () {},
-            isActive: true,
-          ),
-          SideMenuItem(
-            svgSrc: "assets/icons/groups.svg",
-            text: "Customers",
-            press: () {},
-          ),
-          SideMenuItem(
-            svgSrc: "assets/icons/Settings.svg",
-            text: "Settings",
-            press: () {},
-          ),
-        ],
-      ),
-    );
+    return StreamBuilder(
+        stream: routerActiveService.stream$,
+        builder: (BuildContext context, AsyncSnapshot snap) {
+          print(snap.data);
+          return Container(
+            width: 230,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: const BorderRadius.all(Radius.circular(13)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(kDefaultPadding),
+                  child: WebsafeSvg.asset("assets/icons/logo.svg",
+                      height: 200, width: 200),
+                ),
+                SideMenuItem(
+                  svgSrc: "assets/icons/local_grocery_store.svg",
+                  text: "Payment List",
+                  press: () {
+                    Navigator.pushNamed(context, OrderScreen.path);
+                  },
+                  isActive: true,
+                ),
+                SideMenuItem(
+                  svgSrc: "assets/icons/messenger.svg",
+                  text: "Message List",
+                  press: () {
+                    Navigator.pushNamed(context, MessageScreen.path);
+                  },
+                ),
+                SideMenuItem(
+                  svgSrc: "assets/icons/groups.svg",
+                  text: "Roblox",
+                  press: () {},
+                ),
+                SideMenuItem(
+                  svgSrc: "assets/icons/refer.svg",
+                  text: "Referal",
+                  press: () {},
+                ),
+                SideMenuItem(
+                  svgSrc: "assets/icons/Settings.svg",
+                  text: "Settings",
+                  press: () {},
+                ),
+              ],
+            ),
+          );
+        });
   }
 }
 

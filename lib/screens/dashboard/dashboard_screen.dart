@@ -10,13 +10,12 @@ import 'components/orders_table.dart';
 import 'components/status_button.dart';
 
 class DashboardScreen extends StatelessWidget {
+  static String path = '/dashboard';
   final OrdersController _ordersController = Get.put(OrdersController());
   @override
   Widget build(BuildContext context) {
     return MainScreen(
-      body: Column(
-        children: [
-          Row(
+      body: Column( 
             children: [
               Expanded(
                 flex: 5,

@@ -6,7 +6,7 @@ import '../../constants.dart';
 
 class MainScreen extends StatelessWidget {
   final Widget body;
-
+  static String path = '/main';
   const MainScreen({Key key, @required this.body}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class MainScreen extends StatelessWidget {
             kDefaultPadding,
             0,
           ),
-          // width: kMaxWidth,
+          width: kMaxWidth,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:jetti/constants.dart';
 import 'package:jetti/screens/main/main_screen.dart';
-import 'components/PaymentList.dart';
-import 'components/new_oder_info.dart';
 
-class OrderScreen extends StatelessWidget {
-  static String path = '/orders';
+import '../../constants.dart';
+
+class MessageScreen extends StatefulWidget {
+  static String path = '/messages';
+
+  @override
+  _MessageScreenState createState() => _MessageScreenState();
+}
+
+class _MessageScreenState extends State<MessageScreen> {
   @override
   Widget build(BuildContext context) {
     return MainScreen(
@@ -16,23 +21,6 @@ class OrderScreen extends StatelessWidget {
             flex: 10,
             child: Column(
               children: [
-                PaymentList(),
-                ButtonBar(
-                  mainAxisSize: MainAxisSize
-                      .min, // this will take space as minimum as posible(to center)
-                  children: <Widget>[
-                    new RaisedButton(
-                      child: new Text('Here',
-                          style: TextStyle(color: Colors.black)),
-                      onPressed: null,
-                    ),
-                    new RaisedButton(
-                      child: new Text('There',
-                          style: TextStyle(color: Colors.black)),
-                      onPressed: null,
-                    ),
-                  ],
-                ),
                 SizedBox(height: kDefaultPadding),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +55,6 @@ class OrderScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  NewOrderInfo(),
                   // SizedBox(height: kDefaultPadding),
                   // OrderDetails(),
                 ],
