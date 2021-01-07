@@ -4,6 +4,7 @@ import 'package:jetti/screens/dashboard/dashboard_screen.dart';
 import 'package:jetti/screens/logIn/login_screen.dart';
 import 'package:jetti/screens/message/message_screen.dart';
 import 'package:jetti/screens/order/order_screen.dart';
+import 'package:jetti/screens/roblox/roblox.screen.dart';
 
 import 'helper/navigator.dart';
 
@@ -15,4 +16,6 @@ final Map<String, WidgetBuilder> mainRouter = {
       RouteAwareWidget(DashboardScreen.path, child: DashboardScreen()),
   MessageScreen.path: (ctx) =>
       RouteAwareWidget(MessageScreen.path, child: MessageScreen()),
+  RobloxScreen.path: (ctx) =>
+      RouteAwareWidget(RobloxScreen.path, child: RobloxScreen())
 };

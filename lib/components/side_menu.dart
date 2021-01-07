@@ -3,6 +3,7 @@ import 'package:jetti/controllers/router.controller.dart';
 import 'package:jetti/screens/dashboard/dashboard_screen.dart';
 import 'package:jetti/screens/message/message_screen.dart';
 import 'package:jetti/screens/order/order_screen.dart';
+import 'package:jetti/screens/roblox/roblox.screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../constants.dart';
@@ -50,7 +51,9 @@ class SideMenu extends StatelessWidget {
                 SideMenuItem(
                   svgSrc: "assets/icons/groups.svg",
                   text: "Roblox",
-                  press: () {},
+                  press: () {
+                    Navigator.pushNamed(context, RobloxScreen.path);
+                  },
                 ),
                 SideMenuItem(
                   svgSrc: "assets/icons/refer.svg",

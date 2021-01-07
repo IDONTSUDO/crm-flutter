@@ -15,7 +15,9 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScreen(
-      body: Column( 
+      body: Column(
+        children: [
+          Row(
             children: [
               Expanded(
                 flex: 5,
