@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
-import 'package:jetti/controllers/orders_controller.dart';
+import 'package:bogdashka/controllers/orders_controller.dart';
 
 import '../../../constants.dart';
 

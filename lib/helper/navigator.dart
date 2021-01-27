@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jetti/controllers/router.controller.dart';
+import 'package:bogdashka/controllers/router.controller.dart';
 
 import '../main.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jetti/constants.dart';
-import 'package:jetti/controllers/auth_controller.dart';
-import 'package:jetti/enums.dart';
+import 'package:bogdashka/constants.dart';
+import 'package:bogdashka/controllers/auth_controller.dart';
+import 'package:bogdashka/enums.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 class LoginScreen extends StatelessWidget {

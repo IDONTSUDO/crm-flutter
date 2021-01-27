@@ -1,9 +1,10 @@
+import 'package:bogdashka/screens/settings/settings_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:jetti/controllers/router.controller.dart';
-import 'package:jetti/screens/dashboard/dashboard_screen.dart';
-import 'package:jetti/screens/message/message_screen.dart';
-import 'package:jetti/screens/order/order_screen.dart';
-import 'package:jetti/screens/roblox/roblox.screen.dart';
+import 'package:bogdashka/controllers/router.controller.dart';
+import 'package:bogdashka/screens/dashboard/dashboard_screen.dart';
+import 'package:bogdashka/screens/message/message_screen.dart';
+import 'package:bogdashka/screens/order/order_screen.dart';
+import 'package:bogdashka/screens/roblox/roblox.screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../constants.dart';
@@ -18,7 +19,6 @@ class SideMenu extends StatelessWidget {
     return StreamBuilder(
         stream: routerActiveService.stream$,
         builder: (BuildContext context, AsyncSnapshot snap) {
-          print(snap.data);
           return Container(
             width: 230,
             decoration: BoxDecoration(
@@ -63,6 +63,13 @@ class SideMenu extends StatelessWidget {
                 SideMenuItem(
                   svgSrc: "assets/icons/Settings.svg",
                   text: "Settings",
+                  press: () {
+                    Navigator.pushNamed(context, SettingsScrenn.path);
+                  },
+                ),
+                SideMenuItem(
+                  svgSrc: "icons/bar-chart.svg",
+                  text: "Statistic",
                   press: () {},
                 ),
               ],

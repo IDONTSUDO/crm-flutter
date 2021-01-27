@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jetti/controllers/Payment_controller.dart';
-import 'package:jetti/models/Payments.dart';
-import 'package:jetti/screens/order/components/rounded_container.dart';
+import 'package:bogdashka/controllers/Payment_controller.dart';
+import 'package:bogdashka/models/Payments.dart';
+import 'package:bogdashka/screens/order/components/rounded_container.dart';
 
 import '../../../constants.dart';
 import '../../../main.dart';

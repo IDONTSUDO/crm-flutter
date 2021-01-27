@@ -4,9 +4,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:jetti/controllers/auth_controller.dart';
+import 'package:bogdashka/controllers/Statistic_controllet.dart';
+import 'package:bogdashka/controllers/auth_controller.dart';
+import 'package:bogdashka/screens/splash/loader.dart';
 
 import '../constants.dart';
+
+final obk = {};
 
 class Header extends StatelessWidget {
   final AuthController auth = Get.put(AuthController.instance());
@@ -52,12 +56,30 @@ class Header extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildInfo(context,
-                    text: "Sale today: 98147/105000", percentage: 95.1),
-                buildInfo(context,
-                    text: "Money Today: 95/100", percentage: 93.8),
-                buildInfo(context,
-                    text: "Online today: 1033/1050", percentage: 95.1),
+                StreamBuilder(
+                    stream: statisticService.getStatistic(),
+                    // ignore: missing_return
+                    builder: (context,
+                        AsyncSnapshot<Map<dynamic, dynamic>> snapshot) {
+                      if (snapshot.data == null) {
+                        buildLoadingStatWidget();
+                        buildLoadingStatWidget();
+                        buildLoadingStatWidget();
+                      } else {
+                        return Text('312');
+                      }
+                      return buildLoadingStatWidget();
+                    })
+
+                // buildLoadingStatWidget(),
+                // // buildInfo(context,
+                // //     text: "Sale today: 98147/105000", percentage: 95.1),
+                // buildLoadingStatWidget(),
+                // // buildInfo(context,
+                // //     text: "Money Today: 95/100", percentage: 93.8),
+                // buildLoadingStatWidget(),
+                // // buildInfo(context,
+                // //     text: "Online today: 1033/1050", percentage: 95.1),
               ],
             ),
           ),
@@ -88,6 +110,15 @@ class Header extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget buildLoadingStatWidget() {
+    return Center(
+        child: SizedBox(
+      child: CircularProgressIndicator(),
+      height: 10,
+      width: 10,
+    ));
   }
 
   Row buildInfo(BuildContext context,

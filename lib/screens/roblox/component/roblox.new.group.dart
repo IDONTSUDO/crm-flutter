@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jetti/controllers/roblox_controller.dart';
+import 'package:bogdashka/controllers/roblox_controller.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 import 'package:uuid/uuid.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jetti/constants.dart';
-import 'package:jetti/screens/main/main_screen.dart';
+import 'package:bogdashka/constants.dart';
+import 'package:bogdashka/screens/main/main_screen.dart';
 import 'components/PaymentList.dart';
 import 'components/new_oder_info.dart';
 

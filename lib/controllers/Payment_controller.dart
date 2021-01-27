@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:jetti/models/Payments.dart';
+import 'package:bogdashka/models/Payments.dart';
 import 'package:intl/intl.dart';
 
 PaymentProvider paymentService = PaymentProvider();
@@ -11,7 +11,7 @@ class PaymentProvider {
     final Stream<QuerySnapshot> stream = FirebaseFirestore.instance
         .collection('Payments')
         .orderBy('date', descending: true)
-        .limit(10)
+        .limit(50)
         .snapshots();
     return stream.map((qShot) => qShot.docs.map((doc) {
           var fire = doc.data();

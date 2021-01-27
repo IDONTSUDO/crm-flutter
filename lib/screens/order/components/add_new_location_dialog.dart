@@ -40,7 +40,7 @@ Dialog buildAddNewLocationDialog() {
                 Expanded(
                   child: FlutterGooglePlacesWeb(
                     apiKey: "AIzaSyAoDHJtOn52c7myGHGPHke5vxNWqCOuoWE",
-                    proxyURL: 'https://jetti-cors-anywhere.herokuapp.com/',
+                    proxyURL: 'https://bogdashka-cors-anywhere.herokuapp.com/',
                     components: 'country:bd',
                     decoration: InputDecoration(
                       filled: true,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jetti/components/buttons/add_button.dart';
+import 'package:bogdashka/components/buttons/add_button.dart';
 
 import '../../../constants.dart';
 import 'rounded_container.dart';

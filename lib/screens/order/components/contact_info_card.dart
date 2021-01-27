@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jetti/components/buttons/add_button.dart';
-import 'package:jetti/components/buttons/rounded_icon_button.dart';
+import 'package:bogdashka/components/buttons/add_button.dart';
+import 'package:bogdashka/components/buttons/rounded_icon_button.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../../constants.dart';

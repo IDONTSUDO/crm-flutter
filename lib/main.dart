@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jetti/controllers/auth_controller.dart';
-import 'package:jetti/routes.dart';
-import 'package:jetti/screens/dashboard/dashboard_screen.dart';
-import 'package:jetti/screens/logIn/login_screen.dart';
-import 'package:jetti/screens/order/order_screen.dart';
+import 'package:bogdashka/controllers/auth_controller.dart';
+import 'package:bogdashka/routes.dart';
+import 'package:bogdashka/screens/dashboard/dashboard_screen.dart';
+import 'package:bogdashka/screens/logIn/login_screen.dart';
+import 'package:bogdashka/screens/order/order_screen.dart';
 import 'enums.dart';
 import 'theme.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jetti/controllers/orders_controller.dart';
-import 'package:jetti/screens/main/main_screen.dart';
+import 'package:bogdashka/controllers/orders_controller.dart';
+import 'package:bogdashka/screens/main/main_screen.dart';
 
 import '../../constants.dart';
 import 'components/big_body.dart';

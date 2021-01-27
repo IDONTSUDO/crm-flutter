@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jetti/controllers/roblox_controller.dart';
-import 'package:jetti/models/Robox.dart';
+import 'package:bogdashka/controllers/roblox_controller.dart';
+import 'package:bogdashka/models/Robox.dart';
 
-import 'package:jetti/screens/order/components/rounded_container.dart';
+import 'package:bogdashka/screens/order/components/rounded_container.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../../constants.dart';

@@ -41,3 +41,4 @@ final kFilledInputDecoration = InputDecoration(
     borderRadius: BorderRadius.circular(6),
   ),
 );
+final StatisticAllId = '922bcdd4-fbc3-4f94-9fc5-7fc46aaed840';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jetti/screens/main/main_screen.dart';
+import 'package:bogdashka/screens/main/main_screen.dart';
 
 import '../../constants.dart';
 

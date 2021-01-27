@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jetti/components/header.dart';
-import 'package:jetti/components/side_menu.dart';
+import 'package:bogdashka/components/header.dart';
+import 'package:bogdashka/components/side_menu.dart';
 
 import '../../constants.dart';
 

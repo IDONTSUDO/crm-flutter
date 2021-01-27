@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jetti/constants.dart';
+import 'package:bogdashka/constants.dart';
 
 extension FilledText on Text {
   filledText({double padding = 7}) {

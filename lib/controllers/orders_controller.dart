@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/state_manager.dart';
-import 'package:jetti/controllers/api.dart';
-import 'package:jetti/models/order.dart';
+import 'package:bogdashka/controllers/api.dart';
+import 'package:bogdashka/models/order.dart';
 
 class OrdersController extends GetxController {
   Api _api = Api("OrderListView");
