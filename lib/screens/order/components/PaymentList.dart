@@ -26,25 +26,29 @@ class _PaymentListState extends State<PaymentList> {
             return Text('Не добавлено ни одной точки');
           } else {
             return SizedBox(
-              height: 750,
-              width: 900,
-              child: RoundedContainer(
-                title: "Payments Details",
-                borderRadius:
-                    const BorderRadius.only(topRight: Radius.circular(13)),
-                children: [
-                  for (var item in snapshot.data)
-                    buildDetails(context,
-                        leftData: item.date,
-                        leftTitle: 'Final amount:' + item.amount.toString(),
-                        rightData: item.status,
-                        rightTitle: item.payLogin,
-                        right: item.service),
-                  Spacer(),
-                  Spacer(flex: 2),
-                ],
-              ),
-            );
+                height: 750,
+                width: 900,
+                child: RoundedContainer(
+                  title: "Payments Details",
+                  children: [
+                    SizedBox(
+                        height: 700,
+                        child: ListView.separated(
+                            separatorBuilder:
+                                (BuildContext context, int index) =>
+                                    const Divider(),
+                            itemCount: snapshot.data.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return buildDetails(context,
+                                  leftData: snapshot.data[index].date,
+                                  leftTitle: 'Final amount:' +
+                                      snapshot.data[index].amount.toString(),
+                                  rightData: snapshot.data[index].status,
+                                  rightTitle: snapshot.data[index].payLogin,
+                                  right: snapshot.data[index].service);
+                            }))
+                  ],
+                ));
           }
         } else {
           return buildLoadingWidget();
@@ -105,5 +109,3 @@ class _PaymentListState extends State<PaymentList> {
     );
   }
 }
-
-// right

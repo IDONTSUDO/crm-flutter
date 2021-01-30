@@ -30,6 +30,7 @@ dependencies:
 
   # It allows painting and displaying SVG files.
   websafe_svg: ^1.1.4
+  flutter_socket_io: ^0.6.0
 
   # For state management, intelligent dependency injection
   get: ^3.17.1

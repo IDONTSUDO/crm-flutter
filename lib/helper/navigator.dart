@@ -62,13 +62,10 @@ class RouteAwareWidgetState extends State<RouteAwareWidget> with RouteAware {
   @override
   void didPush() {
     routerActiveService.newPath(widget.name);
-    print('didPush ${widget.name}');
   }
 
   @override
-  void didPopNext() {
-    print('didPopNext ${widget.name}');
-  }
+  void didPopNext() {}
 
   @override
   Widget build(BuildContext context) => widget.child;

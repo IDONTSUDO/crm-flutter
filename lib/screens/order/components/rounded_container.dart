@@ -27,14 +27,14 @@ class RoundedContainer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: kDefaultPadding / 2),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: kDefaultPadding * 0.75),
-            child: Text(
-              title,
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
+          // Padding(
+          //   padding:
+          //       const EdgeInsets.symmetric(horizontal: kDefaultPadding * 0.75),
+          //   child: Text(
+          //     title,
+          //     style: TextStyle(fontWeight: FontWeight.bold),
+          //   ),
+          // ),
           Divider(),
           ...children,
         ],

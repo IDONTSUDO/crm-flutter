@@ -1,13 +1,15 @@
+import 'package:bogdashka/screens/order/order_screen.dart';
 import 'package:rxdart/rxdart.dart';
 
 RouterProvider routerActiveService = RouterProvider();
 
 class RouterProvider {
-  BehaviorSubject<String> get routerActive => BehaviorSubject.seeded('21312');
+  // ignore: close_sinks
+  BehaviorSubject<String> router = BehaviorSubject.seeded(OrderScreen.path);
+
+  BehaviorSubject<String> get routerActive => router.stream;
   Stream get stream$ => routerActive.stream;
   void newPath(String path) {
-    print('add:' + path);
     routerActive.add(path);
-    print(routerActive.value + 'value state');
   }
 }

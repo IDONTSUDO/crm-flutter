@@ -14,6 +14,7 @@ final obk = {};
 
 class Header extends StatelessWidget {
   final AuthController auth = Get.put(AuthController.instance());
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,11 +46,11 @@ class Header extends StatelessWidget {
           kDivider,
           Expanded(child: CurrentTime()),
           kDivider,
-          Expanded(
-              child: Text(
-            "ONLINE NOW 42",
-            textAlign: TextAlign.center,
-          )),
+          Expanded(child: Text('SERVER ERR')),
+          //      Text(
+          //   "ONLINE NOW 42",
+          //   textAlign: TextAlign.center,
+          // )
           kDivider,
           Expanded(
             flex: 2,
