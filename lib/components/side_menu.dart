@@ -1,3 +1,4 @@
+import 'package:bogdashka/controllers/message_controller.dart';
 import 'package:bogdashka/screens/settings/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bogdashka/controllers/router.controller.dart';
@@ -37,13 +38,28 @@ class SideMenu extends StatelessWidget {
                 Navigator.pushNamed(context, OrderScreen.path);
               },
               path: OrderScreen.path),
-          SideMenuItem(
-              svgSrc: "icons/messenger.svg",
-              text: "Message List",
-              press: () {
-                Navigator.pushNamed(context, MessageScreen.path);
-              },
-              path: MessageScreen.path),
+          StreamBuilder<Object>(
+              stream: messageService.messageCountSteam$,
+              builder: (context, snapshot) {
+                if (snapshot.data != null) {
+                  return SideMenuItem(
+                      svgSrc: "icons/messenger.svg",
+                      text: "Message List",
+                      counter: snapshot.data.toString(),
+                      press: () {
+                        Navigator.pushNamed(context, MessageScreen.path);
+                      },
+                      path: MessageScreen.path);
+                } else {
+                  return SideMenuItem(
+                      svgSrc: "icons/messenger.svg",
+                      text: "Message List",
+                      press: () {
+                        Navigator.pushNamed(context, MessageScreen.path);
+                      },
+                      path: MessageScreen.path);
+                }
+              }),
           SideMenuItem(
               svgSrc: "icons/groups.svg",
               text: "Roblox",
@@ -58,11 +74,6 @@ class SideMenu extends StatelessWidget {
                 Navigator.pushNamed(context, SettingsScrenn.path);
               },
               path: SettingsScrenn.path),
-          // SideMenuItem(
-          //   svgSrc: "icons/bar-chart.svg",
-          //   text: "Statistic",
-          //   press: () {},
-          // ),
         ],
       ),
     );
@@ -75,14 +86,15 @@ class SideMenuItem extends StatelessWidget {
     @required this.svgSrc,
     @required this.text,
     @required this.press,
-    this.isActive = false,
     this.path,
+    this.counter,
   }) : super(key: key);
 
   final String svgSrc, text;
   final VoidCallback press;
-  final bool isActive;
+
   final String path;
+  final String counter;
   @override
   Widget build(BuildContext context) {
     bool active = false;
@@ -92,6 +104,7 @@ class SideMenuItem extends StatelessWidget {
           if (this.path == snap.data) {
             active = true;
           }
+
           return InkWell(
             onTap: press,
             child: Container(
@@ -117,7 +130,26 @@ class SideMenuItem extends StatelessWidget {
                   Text(
                     text,
                     style: Theme.of(context).textTheme.subtitle2,
-                  )
+                  ),
+                  Spacer(),
+                  counter != null
+                      ? (Container(
+                          height: 15,
+                          width: 15,
+                          decoration: BoxDecoration(
+                              color: Colors.red[500],
+                              border: Border.all(
+                                color: Colors.red[500],
+                              ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          child: Center(
+                              child: Text(
+                            counter,
+                            style: TextStyle(fontSize: 10, color: Colors.white),
+                          )),
+                        ))
+                      : (Container())
                 ],
               ),
             ),

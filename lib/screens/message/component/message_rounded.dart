@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-class RoundedContainer extends StatelessWidget {
-  const RoundedContainer({
+class MessageContainer extends StatelessWidget {
+  const MessageContainer({
     Key key,
     @required this.children,
     @required this.title,
@@ -28,14 +28,12 @@ class RoundedContainer extends StatelessWidget {
         children: [
           SizedBox(height: kDefaultPadding / 2),
           Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: kDefaultPadding * 0.75),
+            padding: const EdgeInsets.all(10),
             child: Text(
               title,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          Divider(),
           ...children,
         ],
       ),

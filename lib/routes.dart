@@ -1,3 +1,4 @@
+import 'package:bogdashka/screens/message/dialog_screen.dart';
 import 'package:bogdashka/screens/settings/settings_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -20,5 +21,7 @@ final Map<String, WidgetBuilder> mainRouter = {
   RobloxScreen.path: (ctx) =>
       RouteAwareWidget(RobloxScreen.path, child: RobloxScreen()),
   SettingsScrenn.path: (ctx) =>
-      RouteAwareWidget(SettingsScrenn.path, child: SettingsScrenn())
+      RouteAwareWidget(SettingsScrenn.path, child: SettingsScrenn()),
+  DialogScreen.path: (ctx) =>
+      RouteAwareWidget(DialogScreen.path, child: DialogScreen()),
 };
