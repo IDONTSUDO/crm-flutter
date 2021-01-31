@@ -1,4 +1,5 @@
 import 'package:bogdashka/controllers/message_controller.dart';
+import 'package:bogdashka/screens/message/dialog_screen.dart';
 import 'package:bogdashka/screens/settings/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bogdashka/controllers/router.controller.dart';
@@ -37,11 +38,11 @@ class SideMenu extends StatelessWidget {
               press: () {
                 Navigator.pushNamed(context, OrderScreen.path);
               },
-              path: OrderScreen.path),
+              path: [OrderScreen.path]),
           StreamBuilder<Object>(
               stream: messageService.messageCountSteam$,
               builder: (context, snapshot) {
-                if (snapshot.data != null) {
+                if (snapshot.data != null && snapshot.data != 0) {
                   return SideMenuItem(
                       svgSrc: "icons/messenger.svg",
                       text: "Message List",
@@ -49,7 +50,7 @@ class SideMenu extends StatelessWidget {
                       press: () {
                         Navigator.pushNamed(context, MessageScreen.path);
                       },
-                      path: MessageScreen.path);
+                      path: [MessageScreen.path, DialogScreen.path]);
                 } else {
                   return SideMenuItem(
                       svgSrc: "icons/messenger.svg",
@@ -57,7 +58,7 @@ class SideMenu extends StatelessWidget {
                       press: () {
                         Navigator.pushNamed(context, MessageScreen.path);
                       },
-                      path: MessageScreen.path);
+                      path: [MessageScreen.path, DialogScreen.path]);
                 }
               }),
           SideMenuItem(
@@ -66,14 +67,14 @@ class SideMenu extends StatelessWidget {
               press: () {
                 Navigator.pushNamed(context, RobloxScreen.path);
               },
-              path: RobloxScreen.path),
+              path: [RobloxScreen.path]),
           SideMenuItem(
               svgSrc: "icons/Settings.svg",
               text: "Settings",
               press: () {
                 Navigator.pushNamed(context, SettingsScrenn.path);
               },
-              path: SettingsScrenn.path),
+              path: [SettingsScrenn.path]),
         ],
       ),
     );
@@ -93,7 +94,7 @@ class SideMenuItem extends StatelessWidget {
   final String svgSrc, text;
   final VoidCallback press;
 
-  final String path;
+  final List path;
   final String counter;
   @override
   Widget build(BuildContext context) {
@@ -101,10 +102,12 @@ class SideMenuItem extends StatelessWidget {
     return StreamBuilder(
         stream: routerActiveService.stream$,
         builder: (BuildContext context, AsyncSnapshot snap) {
-          if (this.path == snap.data) {
+          if (this.path.contains(snap.data)) {
             active = true;
           }
-
+          // ignore: unrelated_type_equality_checks
+          bool counterValid = counter != null && counter != 0;
+          print(counterValid);
           return InkWell(
             onTap: press,
             child: Container(
@@ -132,7 +135,7 @@ class SideMenuItem extends StatelessWidget {
                     style: Theme.of(context).textTheme.subtitle2,
                   ),
                   Spacer(),
-                  counter != null
+                  counterValid
                       ? (Container(
                           height: 15,
                           width: 15,

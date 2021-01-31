@@ -1,3 +1,4 @@
+import 'package:bogdashka/controllers/dialog_controller.dart';
 import 'package:bogdashka/controllers/message_controller.dart';
 import 'package:bogdashka/helper/DateFormatter.dart';
 import 'package:bogdashka/models/MessageRooms.dart';
@@ -113,8 +114,11 @@ Container messageDetailsBuild(BuildContext context,
           ],
         ),
         onTap: () {
-          Navigator.pushNamed(context, DialogScreen.path,
-              arguments: {'document': messageId});
+          dialogService.setDialog(messageId);
+          Navigator.pushNamed(
+            context,
+            DialogScreen.path,
+          );
         },
       ),
     ),
