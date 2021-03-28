@@ -1,19 +1,22 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:bogdashka/helper/Router.dart';
+import 'package:bogdashka/screens/group/group.screen.dart';
+import 'package:bogdashka/screens/log_pass/log_pass.screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:bogdashka/controllers/auth_controller.dart';
-import 'package:bogdashka/routes.dart';
-import 'package:bogdashka/screens/dashboard/dashboard_screen.dart';
-import 'package:bogdashka/screens/logIn/login_screen.dart';
-import 'package:bogdashka/screens/order/order_screen.dart';
-import 'enums.dart';
-import 'theme.dart';
+import 'package:get_storage/get_storage.dart';
+
+import 'components/widgets/Notification.dart';
+
+import 'helper/Theme.dart';
 
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
 void main() async {
+  await GetStorage.init(); // add this
+
   await Firebase.initializeApp();
+
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
@@ -26,10 +29,17 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         navigatorObservers: [routeObserver],
-        title: 'BogdashkaCRM',
-        theme: buildThemeData(context),
         routes: mainRouter,
-        home: OrderScreen());
+        title: 'BOGDA\$HKA | Купить робуксы',
+        theme: themeData(context),
+        themeMode: ThemeMode.dark,
+        darkTheme: darkThemeData(context),
+        home: FutureBuilder<FirebaseApp>(
+          future: Firebase.initializeApp(),
+          builder: (context, snapshot) => snapshot.hasData
+              ? Stack(children: [LogPassScreen(), NotificationPopover()])
+              : Center(child: CircularProgressIndicator()), // SplashScreen
+        ));
   }
 }
 

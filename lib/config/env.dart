@@ -1,5 +1,6 @@
-final env = {
-  'dev': true,
+final envDev = {
   'server': 'https://bogdashka-api-server.space',
-  'debug': true
+};
+final envProduction = {
+  'server': 'https://server-ecomerce-robox.azurewebsites.net',
 };
