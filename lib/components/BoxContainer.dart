@@ -12,38 +12,47 @@ Widget getBoxContainer(
     String bottomMiddelText,
     String bottomNormalText,
     Widget setPage) {
-  // TODO: REFACT
   return Flex(direction: Axis.vertical, children: [
     Container(
       width: widthCont,
       height: heightCont,
-      color: darkPrimaryColor,
+      decoration: BoxDecoration(
+          color: darkPrimaryColor,
+          borderRadius: new BorderRadius.only(
+            topLeft: const Radius.circular(5.0),
+            topRight: const Radius.circular(5.0),
+          )),
       child: Flex(
         direction: Axis.horizontal,
         children: [
           Spacer(),
           Image(
             image: new AssetImage(imgPath),
-            height: 20.0,
-            width: 20,
+            height: 40,
+            width: 40,
           ),
-          Container(
-              margin: const EdgeInsets.only(left: 5.0, right: 5.0),
-              child: Container()),
-          Center(
-            child: Text(
-              topMiddelText,
-              style: TextStyle(fontSize: 13, color: Colors.black),
-            ),
+          Spacer(),
+          Text(
+            topMiddelText,
+            style: TextStyle(
+                fontSize: 15,
+                color: Colors.black,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 2.0),
           ),
           Spacer(),
         ],
       ),
     ),
     Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: new BorderRadius.only(
+            bottomLeft: const Radius.circular(5.0),
+            bottomRight: const Radius.circular(5.0),
+          )),
       width: widthCont,
-      height: heightCont,
-      color: Colors.white,
+      height: 75,
       child: Flex(
         direction: Axis.vertical,
         children: [
@@ -51,7 +60,11 @@ Widget getBoxContainer(
           Center(
             child: Text(
               bottomMiddelText,
-              style: TextStyle(fontSize: 13, color: Colors.black),
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+                fontWeight: FontWeight.w900,
+              ),
             ),
           ),
           Container(
@@ -60,7 +73,11 @@ Widget getBoxContainer(
           Center(
             child: Text(
               bottomNormalText,
-              style: TextStyle(fontSize: 13, color: darkPrimaryColor),
+              style: TextStyle(
+                  fontSize: 13,
+                  color: darkPrimaryColor,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 2.0),
             ),
           ),
           Spacer(),

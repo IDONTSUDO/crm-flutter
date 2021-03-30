@@ -11,7 +11,6 @@ const kSecondaryColor = Colors.black;
 
 const kBackgroundColor = Color(0xFFE7EEF0);
 const kRedColor = Color(0xFFFF6960);
-
 const lightPrimaryColor = Colors.white;
 const darkPrimaryColor = Color(0xFFF9CB08);
 
@@ -32,7 +31,7 @@ const kBodyTextColorLight = Color(0xFFA1B0CA);
 const kBodyTextColorDark = Color(0xFFECEFF5);
 const kTitleTextLightColor = Color(0xFF101112);
 const kTitleTextDarkColor = Colors.white;
-
+// fffdfd
 const kShadowColor = Color(0xFF364564);
 const colorCard = Color(0xFF343434);
 final colorCardBottom = _colorFromHex('#262626');

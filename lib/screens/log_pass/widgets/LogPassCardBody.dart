@@ -58,7 +58,7 @@ class _LogPassCardBodyState extends State<LogPassCardBody> {
                         margin: const EdgeInsets.only(left: 2.0, right: 2.0),
                         child: Container()),
                     Image(
-                      image: new AssetImage('images/log_pass.png'),
+                      image: new AssetImage('log_pass.png'),
                       height: 40.0,
                       width: 40,
                     ),

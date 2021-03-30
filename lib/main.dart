@@ -1,6 +1,7 @@
 import 'package:bogdashka/helper/Router.dart';
 import 'package:bogdashka/screens/group/group.screen.dart';
 import 'package:bogdashka/screens/log_pass/log_pass.screen.dart';
+import 'package:bogdashka/screens/main/main_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         home: FutureBuilder<FirebaseApp>(
           future: Firebase.initializeApp(),
           builder: (context, snapshot) => snapshot.hasData
-              ? Stack(children: [LogPassScreen(), NotificationPopover()])
+              ? Stack(children: [MainScreen(), NotificationPopover()])
               : Center(child: CircularProgressIndicator()), // SplashScreen
         ));
   }
