@@ -35,7 +35,9 @@ const kTitleTextDarkColor = Colors.white;
 const kShadowColor = Color(0xFF364564);
 const colorCard = Color(0xFF343434);
 final colorCardBottom = _colorFromHex('#262626');
-
+final backgrounDarkTheme = _colorFromHex('#0d0c0e');
+final backgroudLiteTheme = Colors.grey[300];
+// final backgroundDarkTheme = Colors.
 Map<String, double> getAppBarSize(BuildContext context) {
   final double widthBar = MediaQuery.of(context).size.width;
   return {'height': 65.0, 'width': widthBar};

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import 'components/widgets/AnimatedBackground.dart';
 import 'components/widgets/Notification.dart';
 
 import 'helper/Theme.dart';
@@ -38,7 +39,10 @@ class MyApp extends StatelessWidget {
         home: FutureBuilder<FirebaseApp>(
           future: Firebase.initializeApp(),
           builder: (context, snapshot) => snapshot.hasData
-              ? Stack(children: [MainScreen(), NotificationPopover()])
+              ? Stack(children: [
+                  MainScreen(),
+                  NotificationPopover(),
+                ])
               : Center(child: CircularProgressIndicator()), // SplashScreen
         ));
   }

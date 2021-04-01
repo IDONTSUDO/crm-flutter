@@ -1,5 +1,7 @@
+import 'package:bogdashka/components/widgets/AnimatedBackground.dart';
 import 'package:bogdashka/components/widgets/Liner.dart';
 import 'package:bogdashka/components/widgets/SmoothScroll.dart';
+import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/screens/main/widgets/BuyRobox.dart';
 import 'package:bogdashka/controllers/CourseController.dart';
 import 'package:bogdashka/models/Settings.dart';
@@ -18,6 +20,7 @@ class MainScreen extends StatelessWidget {
     iSettingsBlock.getInvest();
     // controller.animateTo(-100, duration: Duration.zero, curve: Curves.linear);
     return Scaffold(
+        backgroundColor: backgrounDarkTheme,
         appBar: appBarMainScreen(context),
         bottomNavigationBar: getBottomNavigationBarMainScreen(context),
         body: StreamBuilder<List<ISettings>>(
@@ -29,11 +32,15 @@ class MainScreen extends StatelessWidget {
                 double setingGrroup = snapshot.data[0].course;
                 double settingLogPass = snapshot.data[1].course;
                 double settingsTransfer = snapshot.data[2].course;
-
-                return SmoothScrollWeb(
-                  child: _getChild(
-                      context, setingGrroup, settingLogPass, settingsTransfer),
-                  controller: controller,
+                return Stack(
+                  children: [
+                    AnimatedBackground(controller: controller),
+                    SmoothScrollWeb(
+                      child: _getChild(context, setingGrroup, settingLogPass,
+                          settingsTransfer),
+                      controller: controller,
+                    ),
+                  ],
                 );
               }
             }));
@@ -50,7 +57,6 @@ class MainScreen extends StatelessWidget {
           BuyRoboxStep(setingGrroup, settingLogPass, settingsTransfer),
           Liner(),
           BuyRoboxStep(setingGrroup, settingLogPass, settingsTransfer),
-          Liner(),
         ],
       ),
     );

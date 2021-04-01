@@ -1,8 +1,11 @@
+import 'package:bogdashka/components/BlurryDialog.dart';
 import 'package:bogdashka/components/BoxContainer.dart';
 import 'package:bogdashka/components/widgets/Navigator.animation.dart';
 import 'package:bogdashka/components/widgets/ThemeComponents.dart';
 import 'package:bogdashka/helper/Constants.dart';
+import 'package:bogdashka/screens/group/widgets/GroupCardBody.dart';
 import 'package:bogdashka/screens/log_pass/log_pass.screen.dart';
+import 'package:bogdashka/screens/log_pass/widgets/LogPassCardBody.dart';
 import 'package:bogdashka/screens/transfer/transfer.screen.dart';
 import 'package:flutter/material.dart';
 
@@ -81,8 +84,7 @@ class BuyRoboxStep extends StatelessWidget {
                         '1р = $setingGrroup R\$',
                         '3.569 R\$ доступно',
                         LogPassScreen()),
-                    onTap: () =>
-                        {navigationSideRoute(context, LogPassScreen())},
+                    onTap: () => {_showDialog(context, GroupCard())},
                   ),
                 ),
                 Container(
@@ -100,8 +102,7 @@ class BuyRoboxStep extends StatelessWidget {
                         '1р = $settingLogPass R\$',
                         '3.569 R\$ доступно',
                         LogPassScreen()),
-                    onTap: () =>
-                        {navigationSideRoute(context, LogPassScreen())},
+                    onTap: () => {_showDialog(context, LogPassCardBody())},
                   ),
                 ),
                 Container(
@@ -119,8 +120,7 @@ class BuyRoboxStep extends StatelessWidget {
                         '1р = $settingsTransfer R\$',
                         '3.569 R\$ доступно',
                         LogPassScreen()),
-                    onTap: () =>
-                        {navigationSideRoute(context, TransferScreen())},
+                    onTap: () => {_showDialog(context, GroupCard())},
                   ),
                 ),
                 Container(
@@ -134,4 +134,19 @@ class BuyRoboxStep extends StatelessWidget {
       ),
     );
   }
+}
+
+_showDialog(BuildContext context, Widget body) {
+  VoidCallback continueCallBack = () => {
+        Navigator.of(context).pop(),
+        // code on continue comes here
+      };
+  BlurryDialog alert = BlurryDialog(body);
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
