@@ -51,8 +51,6 @@ dependencies:
   cloud_firestore: ^0.14.3+1
   firebase_auth: ^0.18.3+1
   rxdart: ^0.24.1
-  google_maps_flutter: ^1.0.6
-  google_maps_flutter_web: ^0.1.0+8
   flutter_google_places_web:
     git:
       url: https://github.com/abuanwar072/flutter_google_places_web.git

@@ -11,7 +11,6 @@ class ComercePay {
   TextEditingController yourGetPayTextController;
   TextEditingController yourAtPayTextController;
   double course;
-  // ignore: sort_constructors_first
   ComercePay(this.maxRoboxPay, this.operation, this.mininalPay, this.course,
       this.yourAtPayTextController, this.yourGetPayTextController);
   double computedSumAsRobox(double rub) {
