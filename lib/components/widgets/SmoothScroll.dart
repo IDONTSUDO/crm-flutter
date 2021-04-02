@@ -34,7 +34,6 @@ class SmoothScrollWeb extends StatelessWidget {
     return Listener(
       onPointerSignal: (pointerSignal) {
         int millis = scrollAnimationLength;
-        print(_scroll);
         if (pointerSignal is PointerScrollEvent) {
           if (pointerSignal.scrollDelta.dy > 0) {
             _scroll += scrollSpeed;

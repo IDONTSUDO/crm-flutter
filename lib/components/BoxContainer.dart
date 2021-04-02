@@ -4,14 +4,14 @@ import 'package:bogdashka/helper/Constants.dart';
 import 'package:flutter/material.dart';
 
 Widget getBoxContainer(
-    BuildContext context,
-    double widthCont,
-    double heightCont,
-    String topMiddelText,
-    String imgPath,
-    String bottomMiddelText,
-    String bottomNormalText,
-    Widget setPage) {
+  BuildContext context,
+  double widthCont,
+  double heightCont,
+  String topMiddelText,
+  String imgPath,
+  String bottomMiddelText,
+  String bottomNormalText,
+) {
   return Flex(direction: Axis.vertical, children: [
     Container(
       width: widthCont,

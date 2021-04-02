@@ -18,7 +18,5 @@ class LocalisationApp {
   /// Switch theme and save to local storage
   void switchTheme() {}
 
-  static void init() {
-    print(200);
-  }
+  static void init() {}
 }

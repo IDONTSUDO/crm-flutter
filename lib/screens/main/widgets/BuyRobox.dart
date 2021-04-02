@@ -2,9 +2,8 @@ import 'package:bogdashka/components/BlurryDialog.dart';
 import 'package:bogdashka/components/BoxContainer.dart';
 import 'package:bogdashka/components/widgets/ThemeComponents.dart';
 import 'package:bogdashka/helper/Constants.dart';
-import 'package:bogdashka/screens/group/widgets/GroupCardBody.dart';
-import 'package:bogdashka/screens/log_pass/log_pass.screen.dart';
-import 'package:bogdashka/screens/log_pass/widgets/LogPassCardBody.dart';
+import 'package:bogdashka/screens/main/widgets/GroupCardBody.dart';
+import 'package:bogdashka/screens/main/widgets/LogPassCardBody.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -79,8 +78,7 @@ class BuyRoboxStep extends StatelessWidget {
                         'ГРУППОВОЙ МЕТОД',
                         imageGroupSrc,
                         '1р = $setingGrroup R\$',
-                        '3.569 R\$ доступно',
-                        LogPassScreen()),
+                        '3.569 R\$ доступно'),
                     onTap: () => {_showDialog(context, GroupCard())},
                   ),
                 ),
@@ -91,14 +89,14 @@ class BuyRoboxStep extends StatelessWidget {
                 Container(
                   child: InkWell(
                     child: getBoxContainer(
-                        context,
-                        250.0,
-                        100.0,
-                        'LOG+PASS        ',
-                        logPassDarkSrc,
-                        '1р = $settingLogPass R\$',
-                        '3.569 R\$ доступно',
-                        LogPassScreen()),
+                      context,
+                      250.0,
+                      100.0,
+                      'LOG+PASS        ',
+                      logPassDarkSrc,
+                      '1р = $settingLogPass R\$',
+                      '3.569 R\$ доступно',
+                    ),
                     onTap: () => {_showDialog(context, LogPassCardBody())},
                   ),
                 ),
@@ -109,14 +107,14 @@ class BuyRoboxStep extends StatelessWidget {
                 Container(
                   child: InkWell(
                     child: getBoxContainer(
-                        context,
-                        250.0,
-                        100.0,
-                        'Трансфер          ',
-                        transferSrc,
-                        '1р = $settingsTransfer R\$',
-                        '3.569 R\$ доступно',
-                        LogPassScreen()),
+                      context,
+                      250.0,
+                      100.0,
+                      'Трансфер          ',
+                      transferSrc,
+                      '1р = $settingsTransfer R\$',
+                      '3.569 R\$ доступно',
+                    ),
                     onTap: () => {_showDialog(context, GroupCard())},
                   ),
                 ),
