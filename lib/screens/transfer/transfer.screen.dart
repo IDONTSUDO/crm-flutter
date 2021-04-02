@@ -15,7 +15,7 @@ class TransferScreen extends StatelessWidget {
   static String path = '/transfer/pay';
   @override
   Widget build(BuildContext context) {
-    iSettingsBlock.getInvest();
+    iSettingsBlock.getSettigs();
     final appBar = getAppBarSize(context);
     return Scaffold(
         appBar: appBarMainScreen(context),

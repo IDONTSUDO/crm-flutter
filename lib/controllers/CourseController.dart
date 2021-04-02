@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Bloc {
-  Stream<List<ISettings>> get subject => getInvest();
-  Stream<List<ISettings>> getInvest() {
+  Stream<List<ISettings>> get subject => getSettigs();
+  Stream<List<ISettings>> getSettigs() {
     final Stream<QuerySnapshot> stream =
         FirebaseFirestore.instance.collection('Settings').snapshots();
     return stream.map((qShot) => qShot.docs.map((doc) {

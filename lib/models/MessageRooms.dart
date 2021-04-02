@@ -1,11 +1,4 @@
-// To parse this JSON data, do
-//
-//     final messageRooms = messageRoomsFromJson(jsonString);
-
 import 'dart:convert';
-
-MessageRooms messageRoomsFromJson(String str) =>
-    MessageRooms.fromJson(json.decode(str));
 
 String messageRoomsToJson(MessageRooms data) => json.encode(data.toJson());
 

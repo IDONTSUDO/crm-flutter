@@ -17,8 +17,7 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    iSettingsBlock.getInvest();
-    // controller.animateTo(-100, duration: Duration.zero, curve: Curves.linear);
+    iSettingsBlock.getSettigs();
     return Scaffold(
         backgroundColor: backgrounDarkTheme,
         appBar: appBarMainScreen(context),

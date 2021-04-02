@@ -44,3 +44,4 @@ Map<String, double> getAppBarSize(BuildContext context) {
 }
 
 const bottomNavigatorHeight = 100.0;
+const imageGroup = 'group.png';

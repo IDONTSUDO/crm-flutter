@@ -49,6 +49,7 @@ class FirestoreDatabase extends GetxController implements IDatabase {
   @override
   Stream<DocumentSnapshot> snapshot(String path) => _service.snapshot(path);
 
+  @override
   Future<Map<String, dynamic>> httpsCallable(
           String name, Map<String, dynamic> params) async =>
       _service.httpsCallable(name, params);

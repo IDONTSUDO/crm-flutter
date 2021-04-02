@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:bogdashka/controllers/notificationBloc.dart';
 import 'package:bogdashka/helper/Std.io.dart';
 
 import '../enums.dart';
-import 'package:flutter/material.dart';
 
 class ComercePay {
   double maxRoboxPay;
@@ -11,27 +11,26 @@ class ComercePay {
   TextEditingController yourGetPayTextController;
   TextEditingController yourAtPayTextController;
   double course;
+  // ignore: sort_constructors_first
   ComercePay(this.maxRoboxPay, this.operation, this.mininalPay, this.course,
       this.yourAtPayTextController, this.yourGetPayTextController);
-  computedSumAsRobox(double rub) {
-    double computed = rub * course;
-    return doubleRounding(computed);
+  double computedSumAsRobox(double rub) {
+    return doubleRounding(rub * course);
   }
 
-  roboxCourse() {
+  String roboxCourse() {
     final roboxOne = 1 / course;
     return roboxOne.toStringAsFixed(1);
   }
 
-  // ВЫ ПЛАТИТЕ
-  payComputedAtYouPayInput(String pay) {
+  void payComputedAtYouPayInput(String pay) {
     final payParse = double.tryParse(pay);
     notificationBloc.notification('');
     if (payParse == null) {
       yourGetPayTextController.clear();
       return;
     }
-    final curency = computedSumAsRobox(payParse);
+    final double curency = computedSumAsRobox(payParse);
     if (curency > maxRoboxPay) {
       yourAtPayTextController.clear();
       notificationBloc.notification('Привышает максимальную  сумму робуксов');
@@ -45,8 +44,7 @@ class ComercePay {
     yourAtPayTextController.text = curency.toString();
   }
 
-  //RELISED
-  payComputedAtYouGetInput(String pay) {
+  void payComputedAtYouGetInput(String pay) {
     final payParse = double.tryParse(pay);
     if (payParse == null) {
       yourAtPayTextController.clear();
@@ -77,6 +75,4 @@ class ComercePay {
     }
     return inc;
   }
-
-  payClick() {}
 }

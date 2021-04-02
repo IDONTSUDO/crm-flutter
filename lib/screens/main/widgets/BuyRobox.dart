@@ -23,7 +23,7 @@ class BuyRoboxStep extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 100.0, bottom: 100.0),
+            margin: EdgeInsets.only(top: 100.0, bottom: 100.0),
             child: Column(children: [
               Flex(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -49,8 +49,7 @@ class BuyRoboxStep extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                margin: const EdgeInsets.only(
-                                    left: 20.0, right: 1.0),
+                                margin: EdgeInsets.only(left: 20.0, right: 1.0),
                                 child: Container(),
                               ),
                               Text(
@@ -70,7 +69,7 @@ class BuyRoboxStep extends StatelessWidget {
             children: [
               Flex(direction: Axis.horizontal, children: [
                 Container(
-                  margin: const EdgeInsets.only(left: 20.0, right: 10.0),
+                  margin: EdgeInsets.only(left: 20.0, right: 10.0),
                   child: Container(),
                 ),
                 Container(
@@ -80,7 +79,7 @@ class BuyRoboxStep extends StatelessWidget {
                         250.0,
                         100.0,
                         'ГРУППОВОЙ МЕТОД',
-                        'images/group.png',
+                        imageGroup,
                         '1р = $setingGrroup R\$',
                         '3.569 R\$ доступно',
                         LogPassScreen()),

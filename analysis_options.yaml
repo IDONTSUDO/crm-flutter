@@ -1,0 +1,11 @@
+analyzer:
+  errors:
+    missing_return: warning
+    todo: ignore
+    deprecated_member_use_from_same_package: ignore
+
+    sdk_version_async_exported_from_core: ignore
+  exclude:
+    - "bin/cache/**"
+    - "lib/i18n/messages_*.dart"
+    - "lib/src/http/**"

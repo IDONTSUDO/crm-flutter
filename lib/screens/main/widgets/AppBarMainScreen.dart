@@ -1,6 +1,6 @@
 import 'package:bogdashka/components/SwitcherTheme.dart';
-import 'package:bogdashka/components/TextLayouth4.dart';
 import 'package:bogdashka/components/widgets/Navigator.animation.dart';
+
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +52,7 @@ AppBar appBarMainScreen(BuildContext context) {
                   children: [
                     Spacer(),
                     Text(
-                      'Отзывы',
+                      'message',
                       style: TextStyle(
                           color: Theme.of(context).accentColor, fontSize: 13),
                     ),
@@ -70,7 +70,7 @@ AppBar appBarMainScreen(BuildContext context) {
         // ВЫБЕРЕТЕ РЕЖИМ
         SwitcherTheme(),
         Container(
-          margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+          margin: EdgeInsets.only(left: 10.0, right: 10.0),
           child: Container(),
         ),
         AnimatedContainer(

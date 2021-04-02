@@ -26,10 +26,10 @@ Widget getBoxContainer(
         direction: Axis.horizontal,
         children: [
           Spacer(),
-          Image(
-            image: new AssetImage(imgPath),
+          Container(
             height: 40,
             width: 40,
+            child: Image.asset(imgPath),
           ),
           Spacer(),
           Text(
