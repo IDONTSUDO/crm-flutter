@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class LocalisationApp {
-  final _box = GetStorage('themeMode');
-  final _key = 'isDarkMode';
+  final _box = GetStorage('localizations');
+  final _key = 'localizations';
 
   /// Get isDarkMode info from local storage and return ThemeMode
   ThemeMode get theme => _loadThemeFromBox() ? ThemeMode.dark : ThemeMode.light;
@@ -16,10 +16,9 @@ class LocalisationApp {
   _saveThemeToBox(bool isDarkMode) => _box.write(_key, isDarkMode);
 
   /// Switch theme and save to local storage
-  void switchTheme() {
-    Get.changeThemeMode(_loadThemeFromBox() ? ThemeMode.light : ThemeMode.dark);
-    _saveThemeToBox(!_loadThemeFromBox());
-  }
+  void switchTheme() {}
 
-  static void init() {}
+  static void init() {
+    print(200);
+  }
 }

@@ -6,17 +6,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
-import 'components/widgets/AnimatedBackground.dart';
 import 'components/widgets/Notification.dart';
 
+import 'controllers/LocalisationAppService.dart';
 import 'helper/Theme.dart';
 
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
 void main() async {
-  await GetStorage.init(); // add this
-
+  await GetStorage.init();
+  await LocalisationApp.init();
   await Firebase.initializeApp();
 
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +23,6 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     final Future<FirebaseApp> _initialization = Firebase.initializeApp();
@@ -43,7 +41,7 @@ class MyApp extends StatelessWidget {
                   MainScreen(),
                   NotificationPopover(),
                 ])
-              : Center(child: CircularProgressIndicator()), // SplashScreen
+              : Center(child: CircularProgressIndicator()),
         ));
   }
 }
