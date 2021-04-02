@@ -1,20 +1,10 @@
 name: bogdashka
 description: A new Flutter project.
 
-# The following line prevents the package from being accidentally published to
-# pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+publish_to: "none" 
+
+
 version: 1.0.0+1
 
 environment:
@@ -24,36 +14,29 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+
   cupertino_icons: ^1.0.1
   custom_switch: ^0.0.1
 
-  # It allows painting and displaying SVG files.
   websafe_svg: ^1.1.4
   flutter_socket_io: ^0.6.0
   cloud_functions: "^0.7.0"
 
-  # For state management, intelligent dependency injection
   get: ^3.17.1
   get_storage: ^1.3.1
-  # It allows you to easily use any of the 977 fonts from fonts.google.com
   google_fonts: ^1.1.1
 
-  # This provides internationalization and localization facilities
   intl: ^0.16.1
   url_launcher: ^5.7.0
   dio: ^3.0.8
 
 
-  # Firebase
+
   firebase_core: ^0.5.2+1
   cloud_firestore: ^0.14.3+1
   firebase_auth: ^0.18.3+1
   rxdart: ^0.24.1
-  flutter_google_places_web:
-    git:
-      url: https://github.com/abuanwar072/flutter_google_places_web.git
+
 
 dev_dependencies:
   flutter_test:
@@ -68,8 +51,3 @@ flutter:
 assets:
     - assets/images/
     - assets/
-# - family: Montserrat
-#     fonts:
-#       - asset: fonts/Montserrat-Black.ttf
-#       - asset: fonts/Montserrat-Bold.ttf
-#         weight: 700
