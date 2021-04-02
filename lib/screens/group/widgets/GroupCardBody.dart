@@ -1,10 +1,8 @@
 import 'package:bogdashka/components/RoboxPatButton.dart';
 import 'package:bogdashka/components/TextLayouth1.dart';
-import 'package:bogdashka/components/TextLayouth3.dart';
-import 'package:bogdashka/components/TextLayouth4.dart';
 import 'package:bogdashka/components/widgets/BoxFormTopTextLeftImage.dart';
 import 'package:bogdashka/components/widgets/BoxFornTopText.dart';
-import 'package:bogdashka/controllers/CourseController.dart';
+import 'package:bogdashka/controllers/Settings.controller.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/models/Settings.dart';
 import 'package:bogdashka/service/Comerce.dart';
@@ -23,7 +21,7 @@ class GroupCard extends StatelessWidget {
   Widget build(BuildContext context) {
     ComercePay comercePay;
     return StreamBuilder<List<ISettings>>(
-        stream: iSettingsBlock.subject,
+        stream: settingsController.subject,
         builder: (context, snapshot) {
           if (snapshot.data == null) {
             return buildLoadingWidget();
@@ -55,10 +53,8 @@ class GroupCard extends StatelessWidget {
                         Container(
                             margin: const EdgeInsets.only(left: 10, right: 10),
                             child: Container()),
-                        //    getBoxContainerCard(context, 550, 200, 'LOG + PASS',
-                        // 'images/log_pass.png', '123', LogPassCardBody()),
                         Image(
-                          image: new AssetImage('images/log_pass.png'),
+                          image: new AssetImage(lightLogPassSrc),
                           height: 40.0,
                           width: 40,
                         ),
@@ -92,7 +88,7 @@ class GroupCard extends StatelessWidget {
                                     comercePay.payComputedAtYouGetInput),
                                 BoxFormTopTextLeftImage(
                                     _controllerYouGet,
-                                    'images/R.png',
+                                    rubIconLightSrc,
                                     'Вы платите',
                                     comercePay.payComputedAtYouPayInput),
                                 Spacer(),

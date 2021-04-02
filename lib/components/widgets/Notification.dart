@@ -1,4 +1,4 @@
-import 'package:bogdashka/controllers/notificationBloc.dart';
+import 'package:bogdashka/controllers/notification_controller.dart';
 import 'package:flutter/material.dart';
 
 class NotificationPopover extends StatelessWidget {

@@ -1,12 +1,10 @@
 import 'package:bogdashka/components/BlurryDialog.dart';
 import 'package:bogdashka/components/BoxContainer.dart';
-import 'package:bogdashka/components/widgets/Navigator.animation.dart';
 import 'package:bogdashka/components/widgets/ThemeComponents.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/screens/group/widgets/GroupCardBody.dart';
 import 'package:bogdashka/screens/log_pass/log_pass.screen.dart';
 import 'package:bogdashka/screens/log_pass/widgets/LogPassCardBody.dart';
-import 'package:bogdashka/screens/transfer/transfer.screen.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -43,7 +41,7 @@ class BuyRoboxStep extends StatelessWidget {
                             children: [
                               Center(
                                 child: Image(
-                                  image: new AssetImage('images/backet.l.png'),
+                                  image: new AssetImage(lightBacketSrc),
                                   height: 30.0,
                                   width: 30,
                                 ),
@@ -79,7 +77,7 @@ class BuyRoboxStep extends StatelessWidget {
                         250.0,
                         100.0,
                         'ГРУППОВОЙ МЕТОД',
-                        imageGroup,
+                        imageGroupSrc,
                         '1р = $setingGrroup R\$',
                         '3.569 R\$ доступно',
                         LogPassScreen()),
@@ -97,7 +95,7 @@ class BuyRoboxStep extends StatelessWidget {
                         250.0,
                         100.0,
                         'LOG+PASS        ',
-                        'images/log_pass_d.png',
+                        logPassDarkSrc,
                         '1р = $settingLogPass R\$',
                         '3.569 R\$ доступно',
                         LogPassScreen()),
@@ -115,7 +113,7 @@ class BuyRoboxStep extends StatelessWidget {
                         250.0,
                         100.0,
                         'Трансфер          ',
-                        'images/transfer.png',
+                        transferSrc,
                         '1р = $settingsTransfer R\$',
                         '3.569 R\$ доступно',
                         LogPassScreen()),

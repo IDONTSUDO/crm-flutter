@@ -1,8 +1,9 @@
 import 'package:bogdashka/models/Settings.dart';
+import 'package:bogdashka/service/firestore_database.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Bloc {
+class Controller extends FirestoreDatabase {
   Stream<List<ISettings>> get subject => getSettigs();
   Stream<List<ISettings>> getSettigs() {
     final Stream<QuerySnapshot> stream =
@@ -14,4 +15,4 @@ class Bloc {
   }
 }
 
-final iSettingsBlock = Bloc();
+final settingsController = Controller();

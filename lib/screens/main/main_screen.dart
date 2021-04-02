@@ -1,9 +1,9 @@
 import 'package:bogdashka/components/widgets/AnimatedBackground.dart';
 import 'package:bogdashka/components/widgets/Liner.dart';
 import 'package:bogdashka/components/widgets/SmoothScroll.dart';
+import 'package:bogdashka/controllers/Settings.controller.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/screens/main/widgets/BuyRobox.dart';
-import 'package:bogdashka/controllers/CourseController.dart';
 import 'package:bogdashka/models/Settings.dart';
 import 'package:bogdashka/screens/main/widgets/AppBarMainScreen.dart';
 import 'package:flutter/material.dart';
@@ -17,13 +17,12 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    iSettingsBlock.getSettigs();
     return Scaffold(
         backgroundColor: backgrounDarkTheme,
         appBar: appBarMainScreen(context),
         bottomNavigationBar: getBottomNavigationBarMainScreen(context),
         body: StreamBuilder<List<ISettings>>(
-            stream: iSettingsBlock.subject,
+            stream: settingsController.subject,
             builder: (context, snapshot) {
               if (snapshot.data == null) {
                 return buildLoadingWidget();

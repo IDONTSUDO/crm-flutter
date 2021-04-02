@@ -1,6 +1,4 @@
-import 'package:bogdashka/components/BoxContainer.dart';
-
-import 'package:bogdashka/controllers/CourseController.dart';
+import 'package:bogdashka/controllers/Settings.controller.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/models/Settings.dart';
 import 'package:bogdashka/screens/main/widgets/AppBarMainScreen.dart';
@@ -15,20 +13,20 @@ class TransferScreen extends StatelessWidget {
   static String path = '/transfer/pay';
   @override
   Widget build(BuildContext context) {
-    iSettingsBlock.getSettigs();
-    final appBar = getAppBarSize(context);
+    settingsController.getSettigs();
+    // final appBar = getAppBarSize(context);
     return Scaffold(
         appBar: appBarMainScreen(context),
         bottomNavigationBar: getBottomNavigationBarMainScreen(context),
         body: StreamBuilder<List<ISettings>>(
-            stream: iSettingsBlock.subject,
+            stream: settingsController.subject,
             builder: (context, snapshot) {
               if (snapshot.data == null) {
                 return buildLoadingWidget();
               } else {
-                double setingGrroup = snapshot.data[0].course;
-                double settingLogPass = snapshot.data[1].course;
-                double settingsTransfer = snapshot.data[2].course;
+                // double setingGrroup = snapshot.data[0].course;
+                // double settingLogPass = snapshot.data[1].course;
+                // double settingsTransfer = snapshot.data[2].course;
 
                 return Container(
                   child: Column(

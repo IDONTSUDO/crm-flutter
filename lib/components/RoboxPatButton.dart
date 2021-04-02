@@ -1,3 +1,4 @@
+import 'package:bogdashka/helper/Constants.dart';
 import 'package:flutter/material.dart';
 
 Widget getRoboxPayBtn({int fontSizer, FontWeight font}) {
@@ -6,7 +7,7 @@ Widget getRoboxPayBtn({int fontSizer, FontWeight font}) {
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: Image(
-          image: new AssetImage('images/backet.png'),
+          image: new AssetImage(backeLightSrc),
           height: 30.0,
           width: 30,
         ),

@@ -1,6 +1,4 @@
 import 'package:bogdashka/helper/Router.dart';
-import 'package:bogdashka/screens/group/group.screen.dart';
-import 'package:bogdashka/screens/log_pass/log_pass.screen.dart';
 import 'package:bogdashka/screens/main/main_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +23,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+    Firebase.initializeApp();
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         navigatorObservers: [routeObserver],
@@ -49,22 +47,3 @@ class MyApp extends StatelessWidget {
 Widget buildLoadingWidget() {
   return Center(child: CircularProgressIndicator());
 }
-//  return FutureBuilder(
-//         future: _initialization,
-//         builder: (context, appSnapshot) {
-//           return GetMaterialApp(
-//               debugShowCheckedModeBanner: false,
-//               title: 'BogdashkaCRM',
-//               theme: buildThemeData(context),
-//               routes: mainRouter,
-//               home: appSnapshot.connectionState != ConnectionState.done
-//                   ? LoginScreen()
-//                   : StreamBuilder(
-//                       stream: FirebaseAuth.instance.authStateChanges(),
-//                       builder: (ctx, userSnapshot) {
-//                         if (userSnapshot.hasData) {
-//                           return OrderScreen();
-//                         }
-//                         return LoginScreen();
-//                       }));
-//         });

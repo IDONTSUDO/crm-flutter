@@ -26,7 +26,7 @@ AppBar appBarMainScreen(BuildContext context) {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image(
-                image: new AssetImage('images/logo.png'),
+                image: new AssetImage(mainLogoSrc),
                 height: 92.0,
                 width: 200,
               ),
@@ -84,7 +84,7 @@ AppBar appBarMainScreen(BuildContext context) {
               child: Row(
                 children: [
                   Image(
-                    image: new AssetImage('images/backet.png'),
+                    image: new AssetImage(backeLightSrc),
                     height: 30.0,
                     width: 30,
                   ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bogdashka/controllers/notificationBloc.dart';
+import 'package:bogdashka/controllers/notification_controller.dart';
 import 'package:bogdashka/helper/Std.io.dart';
 
 import '../enums.dart';

@@ -1,7 +1,8 @@
 import 'package:bogdashka/components/RoboxPatButton.dart';
 import 'package:bogdashka/components/TextLayouth3.dart';
 import 'package:bogdashka/components/TextLayouth4.dart';
-import 'package:bogdashka/controllers/CourseController.dart';
+import 'package:bogdashka/controllers/Settings.controller.dart';
+
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/models/Settings.dart';
 import 'package:bogdashka/service/Comerce.dart';
@@ -27,7 +28,7 @@ class _TransferCardBodyState extends State<TransferCardBody> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<ISettings>>(
-        stream: iSettingsBlock.subject,
+        stream: settingsController.subject,
         builder: (context, snapshot) {
           if (snapshot.data == null) {
             return buildLoadingWidget();
@@ -56,10 +57,8 @@ class _TransferCardBodyState extends State<TransferCardBody> {
                     Container(
                         margin: const EdgeInsets.only(left: 2.0, right: 2.0),
                         child: Container()),
-                    //    getBoxContainerCard(context, 550, 200, 'LOG + PASS',
-                    // 'images/log_pass.png', '123', TransferCardBody()),
                     Image(
-                      image: new AssetImage('images/log_pass.png'),
+                      image: new AssetImage(lightLogPassSrc),
                       height: 40.0,
                       width: 40,
                     ),
@@ -159,7 +158,7 @@ class _TransferCardBodyState extends State<TransferCardBody> {
                                                 right: 5)),
                                         Image(
                                           image:
-                                              new AssetImage('images/R\$.png'),
+                                              new AssetImage(roboxIconLightSrc),
                                           height: 30.0,
                                           width: 30,
                                         ),
@@ -200,7 +199,8 @@ class _TransferCardBodyState extends State<TransferCardBody> {
                                                 left: 5,
                                                 right: 5)),
                                         Image(
-                                          image: new AssetImage('images/R.png'),
+                                          image:
+                                              new AssetImage(rubIconLightSrc),
                                           height: 30.0,
                                           width: 30,
                                         ),
