@@ -53,3 +53,7 @@ const lightLogPassSrc = 'images/log_pass.png';
 const roboxIconLightSrc = 'images/R\$.png';
 const backeLightSrc = 'images/backet.png';
 const logPassLightSrc = 'log_pass.png';
+
+double getHeighStep(BuildContext context) {
+  return MediaQuery.of(context).size.height - 180;
+}

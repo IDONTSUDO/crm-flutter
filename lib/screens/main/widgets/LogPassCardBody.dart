@@ -1,4 +1,4 @@
-import 'package:bogdashka/components/RoboxPatButton.dart';
+import 'package:bogdashka/screens/main/widgets/RoboxPayButton.dart';
 import 'package:bogdashka/components/TextLayouth1.dart';
 import 'package:bogdashka/components/TextLayouth4.dart';
 import 'package:bogdashka/controllers/Settings.controller.dart';

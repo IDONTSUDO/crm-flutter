@@ -1,4 +1,5 @@
 import 'package:bogdashka/components/MainScalford.dart';
+import 'package:bogdashka/components/calculated/CalculdatedRobox.dart';
 import 'package:bogdashka/components/widgets/AnimatedBackground.dart';
 import 'package:bogdashka/components/widgets/Liner.dart';
 import 'package:bogdashka/components/widgets/SmoothScroll.dart';
@@ -49,9 +50,12 @@ class MainScreen extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         controller: controller,
         children: [
-          BuyRoboxStep(setingGrroup, settingLogPass, settingsTransfer),
+          // BuyRoboxStep(setingGrroup, settingLogPass, settingsTransfer),
           Liner(),
-          BuyRoboxStep(setingGrroup, settingLogPass, settingsTransfer),
+          Container(
+            height: 200,
+          ),
+          CalculdatedRobox()
         ],
       ),
     );

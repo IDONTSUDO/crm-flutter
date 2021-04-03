@@ -1,4 +1,4 @@
-import 'package:bogdashka/components/RoboxPatButton.dart';
+import 'package:bogdashka/screens/main/widgets/RoboxPayButton.dart';
 import 'package:bogdashka/components/TextLayouth1.dart';
 import 'package:bogdashka/components/widgets/BoxFormTopTextLeftImage.dart';
 import 'package:bogdashka/components/widgets/BoxFornTopText.dart';
@@ -83,7 +83,7 @@ class GroupCard extends StatelessWidget {
                                     'Введите никнейм', eqw),
                                 BoxFormTopTextLeftImage(
                                     _controllerYouPay,
-                                    'images/R\$.png',
+                                    roboxIconLightSrc,
                                     'Вы получайте',
                                     comercePay.payComputedAtYouGetInput),
                                 BoxFormTopTextLeftImage(
