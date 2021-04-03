@@ -23,6 +23,9 @@ class _LogPassCardBodyState extends State<LogPassCardBody> {
   ComercePay comercePay;
   final TextEditingController _controllerYouPay = new TextEditingController();
   final TextEditingController _controllerYouGet = new TextEditingController();
+  final TextEditingController _controllerYourNickName =
+      new TextEditingController();
+  final TextEditingController _controllerPassword = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {

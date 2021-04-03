@@ -1,5 +1,6 @@
 import 'package:bogdashka/components/BlurryDialog.dart';
 import 'package:bogdashka/components/BoxContainer.dart';
+import 'package:bogdashka/components/widgets/Notification.dart';
 import 'package:bogdashka/components/widgets/ThemeComponents.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/screens/main/widgets/GroupCardBody.dart';
@@ -132,16 +133,18 @@ class BuyRoboxStep extends StatelessWidget {
 }
 
 _showDialog(BuildContext context, Widget body) {
-  VoidCallback continueCallBack = () => {
-        Navigator.of(context).pop(),
-        // code on continue comes here
-      };
+  // VoidCallback continueCallBack = () => {
+  //       Navigator.of(context).pop(),
+  //       // code on continue comes here
+  //     };
   BlurryDialog alert = BlurryDialog(body);
 
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return alert;
+      return Stack(
+        children: [alert, NotificationPopover()],
+      );
     },
   );
 }

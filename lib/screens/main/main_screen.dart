@@ -50,12 +50,12 @@ class MainScreen extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         controller: controller,
         children: [
-          // BuyRoboxStep(setingGrroup, settingLogPass, settingsTransfer),
-          Liner(),
-          Container(
-            height: 200,
-          ),
-          CalculdatedRobox()
+          BuyRoboxStep(setingGrroup, settingLogPass, settingsTransfer),
+          // Liner(),
+          // Container(
+          //   height: 200,
+          // ),
+          // CalculdatedRobox()
         ],
       ),
     );

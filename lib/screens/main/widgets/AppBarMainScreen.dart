@@ -68,7 +68,7 @@ AppBar appBarMainScreen(BuildContext context) {
         ),
         Spacer(),
         // ВЫБЕРЕТЕ РЕЖИМ
-        SwitcherTheme(),
+        // SwitcherTheme(),
         Container(
           margin: EdgeInsets.only(left: 10.0, right: 10.0),
           child: Container(),
