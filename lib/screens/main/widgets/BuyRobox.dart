@@ -3,8 +3,8 @@ import 'package:bogdashka/components/BoxContainer.dart';
 import 'package:bogdashka/components/widgets/Notification.dart';
 import 'package:bogdashka/components/widgets/ThemeComponents.dart';
 import 'package:bogdashka/helper/Constants.dart';
-import 'package:bogdashka/screens/main/widgets/GroupCardBody.dart';
-import 'package:bogdashka/screens/main/widgets/LogPassCardBody.dart';
+import 'package:bogdashka/screens/main/widgets/group/GroupCardBody.dart';
+import 'package:bogdashka/screens/main/widgets/log_pass/LogPassCardBody.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -133,10 +133,6 @@ class BuyRoboxStep extends StatelessWidget {
 }
 
 _showDialog(BuildContext context, Widget body) {
-  // VoidCallback continueCallBack = () => {
-  //       Navigator.of(context).pop(),
-  //       // code on continue comes here
-  //     };
   BlurryDialog alert = BlurryDialog(body);
 
   showDialog(

@@ -34,7 +34,7 @@ const colorCard = Color(0xFF343434);
 final colorCardBottom = _colorFromHex('#262626');
 final backgrounDarkTheme = _colorFromHex('#0d0c0e');
 final backgroudLiteTheme = Colors.grey[300];
-
+final groupGrey = _colorFromHex('C4C4C4');
 Map<String, double> getAppBarSize(BuildContext context) {
   final double widthBar = MediaQuery.of(context).size.width;
   return {'height': 65.0, 'width': widthBar};
@@ -53,7 +53,8 @@ const lightLogPassSrc = 'images/log_pass.png';
 const roboxIconLightSrc = 'images/R\$.png';
 const backeLightSrc = 'images/backet.png';
 const logPassLightSrc = 'log_pass.png';
-
+const sadSmileDarkSrc = 'images/sadsmiley.png';
+const sadSmileLightSrc = 'images/sadSmileLight.png';
 double getHeighStep(BuildContext context) {
   return MediaQuery.of(context).size.height - 180;
 }

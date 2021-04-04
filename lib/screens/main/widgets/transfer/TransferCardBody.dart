@@ -8,8 +8,8 @@ import 'package:bogdashka/models/Settings.dart';
 import 'package:bogdashka/service/Comerce.dart';
 import 'package:flutter/material.dart';
 
-import '../../../enums.dart';
-import '../../../main.dart';
+import '../../../../enums.dart';
+import '../../../../main.dart';
 
 class TransferCardBody extends StatefulWidget {
   @override
@@ -24,7 +24,8 @@ class _TransferCardBodyState extends State<TransferCardBody> {
   ComercePay comercePay;
   final TextEditingController _controllerYouPay = new TextEditingController();
   final TextEditingController _controllerYouGet = new TextEditingController();
-
+  final TextEditingController _controllerYourNickName =
+      new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<ISettings>>(
@@ -45,7 +46,8 @@ class _TransferCardBodyState extends State<TransferCardBody> {
                 snap.mininalPay,
                 snap.course,
                 _controllerYouPay,
-                _controllerYouGet);
+                _controllerYouGet,
+                _controllerYourNickName);
             return Flex(direction: Axis.vertical, children: [
               Container(
                 width: 550,

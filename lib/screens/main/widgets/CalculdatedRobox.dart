@@ -30,14 +30,14 @@ class CalculdatedRobox extends StatelessWidget {
             child: Flex(
               direction: Axis.vertical,
               children: [
-                // TextLayouth1('КАЛЬКУЛЯТОР ПОКУПКИ РОБУКСОВ'),
-                // TextLayouth1('Введите сумму'),
-                // BoxFormTopText(_controllerSum, '', eqw),
-                // Flex(direction: Axis.vertical, children: [
-                //   BoxFormTextLeft(_controllerSum, '100', eqw, 'Group     = '),
-                //   BoxFormTextLeft(_controllerSum, '100', eqw, 'Log+Pass  = '),
-                //   BoxFormTextLeft(_controllerSum, '100', eqw, 'Transfer  = '),
-                // ]),
+                TextLayouth1('КАЛЬКУЛЯТОР ПОКУПКИ РОБУКСОВ'),
+                TextLayouth1('Введите сумму'),
+                BoxFormTopText(_controllerSum, '', eqw),
+                Flex(direction: Axis.vertical, children: [
+                  BoxFormTextLeft(_controllerSum, '100', eqw, 'Group     = '),
+                  BoxFormTextLeft(_controllerSum, '100', eqw, 'Log+Pass  = '),
+                  BoxFormTextLeft(_controllerSum, '100', eqw, 'Transfer  = '),
+                ]),
               ],
             ),
           ),

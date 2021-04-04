@@ -1,7 +1,7 @@
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:flutter/material.dart';
 
-Widget getRoboxPayBtn({int fontSizer, FontWeight font}) {
+Widget getRoboxPayBtn({int fontSizer, FontWeight font, Function clickEvent}) {
   return Row(
     children: [
       Padding(
@@ -13,12 +13,14 @@ Widget getRoboxPayBtn({int fontSizer, FontWeight font}) {
         ),
       ),
       Spacer(),
-      Text(
-        'КУПИТЬ РОБУКСЫ',
-        style: TextStyle(
-            fontSize: fontSizer != null ? fontSizer : 15,
-            color: Colors.black,
-            fontWeight: font != null ? font : FontWeight.w700),
+      Container(
+        child: Text(
+          'КУПИТЬ РОБУКСЫ',
+          style: TextStyle(
+              fontSize: fontSizer != null ? fontSizer : 15,
+              color: Colors.black,
+              fontWeight: font != null ? font : FontWeight.w700),
+        ),
       ),
       Spacer(),
     ],

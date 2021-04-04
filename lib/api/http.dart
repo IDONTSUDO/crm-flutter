@@ -1,4 +1,5 @@
 import 'package:bogdashka/config/env.dart';
+import 'package:bogdashka/models/GroupPay.dart';
 import 'package:bogdashka/models/LogPassPay.dart';
 import 'package:dio/dio.dart';
 
@@ -17,6 +18,28 @@ class RestApiProvider {
     } catch (error, stacktrace) {
       print("Exception occured: $error stackTrace: $stacktrace");
       return false;
+    }
+  }
+
+  Future<List<dynamic>> checkUserAtGroup(String name) async {
+    try {
+      return (await http
+              .post(serverURL + '/user/group/time', data: {"userName": name}))
+          .data;
+    } catch (error, stacktrace) {
+      print("Exception occured: $error stackTrace: $stacktrace");
+      return null;
+    }
+  }
+
+  Future<String> getPayGroup(GroupPay groupPay) async {
+    try {
+      return (await http.post(serverURL + '/pay/group',
+              data: groupPay.toJson()))
+          .data;
+    } catch (error, stacktrace) {
+      print("Exception occured: $error stackTrace: $stacktrace");
+      return null;
     }
   }
 }

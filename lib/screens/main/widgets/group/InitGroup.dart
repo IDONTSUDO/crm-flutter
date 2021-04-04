@@ -1,24 +1,27 @@
-import 'package:bogdashka/screens/main/widgets/RoboxPayButton.dart';
 import 'package:bogdashka/components/TextLayouth1.dart';
+import 'package:bogdashka/components/loader.dart';
 import 'package:bogdashka/components/widgets/BoxFormTopTextLeftImage.dart';
 import 'package:bogdashka/components/widgets/BoxFornTopText.dart';
+import 'package:bogdashka/controllers/GroupPayment.controller.dart';
 import 'package:bogdashka/controllers/Settings.controller.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/models/Settings.dart';
 import 'package:bogdashka/service/Comerce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-import '../../../enums.dart';
-import '../../../main.dart';
+import '../../../../enums.dart';
+import '../RoboxPayButton.dart';
 
-class GroupCard extends StatelessWidget {
-  String text;
-  final TextEditingController _controllerYouPay = new TextEditingController();
-  final TextEditingController _controllerYouGet = new TextEditingController();
-  final TextEditingController _controllerNickname = new TextEditingController();
+class InitGroup extends StatelessWidget {
+  const InitGroup({Key key}) : super(key: key);
   void eqw(String e) {}
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _controllerYouPay = new TextEditingController();
+    final TextEditingController _controllerYouGet = new TextEditingController();
+    final TextEditingController _controllerNickname =
+        new TextEditingController();
     ComercePay comercePay;
     return StreamBuilder<List<ISettings>>(
         stream: settingsController.subject,
@@ -38,7 +41,8 @@ class GroupCard extends StatelessWidget {
                 snap.mininalPay,
                 snap.course,
                 _controllerYouPay,
-                _controllerYouGet);
+                _controllerYouGet,
+                _controllerNickname);
             return Flex(
                 mainAxisAlignment: MainAxisAlignment.start,
                 direction: Axis.vertical,
@@ -93,7 +97,6 @@ class GroupCard extends StatelessWidget {
                                     comercePay.payComputedAtYouPayInput),
                                 Spacer(),
                                 Container(
-                                  // color: Theme.of(context).primaryColor,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10.0),
                                     color: Theme.of(context).primaryColor,
@@ -102,7 +105,10 @@ class GroupCard extends StatelessWidget {
                                   height: 80,
                                   child: InkWell(
                                     child: getRoboxPayBtn(),
-                                    onTap: () {},
+                                    onTap: () {
+                                      comercePay.groupPayCheckUser(
+                                          _controllerNickname, comercePay);
+                                    },
                                   ),
                                 ),
                                 Spacer(),
