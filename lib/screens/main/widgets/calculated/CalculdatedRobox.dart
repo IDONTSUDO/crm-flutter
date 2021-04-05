@@ -7,7 +7,7 @@ import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/main.dart';
 import 'package:bogdashka/models/CalclutedRobox.dart';
 import 'package:bogdashka/service/CalculatorRobox_service.dart';
-import 'package:bogdashka/service/processor.dart';
+import 'package:bogdashka/service/processor_service.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../enums.dart';
