@@ -6,7 +6,7 @@ import 'package:bogdashka/controllers/GroupPayment.controller.dart';
 import 'package:bogdashka/controllers/Settings.controller.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/models/Settings.dart';
-import 'package:bogdashka/service/Comerce.dart';
+import 'package:bogdashka/service/Comerce_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 

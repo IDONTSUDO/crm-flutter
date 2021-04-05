@@ -1,4 +1,4 @@
-import 'package:bogdashka/controllers/ThemeService.dart';
+import 'package:bogdashka/service/ThemeService.dart';
 import 'package:flutter/material.dart';
 
 class ThemeComponent extends StatelessWidget {

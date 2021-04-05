@@ -4,7 +4,7 @@ import 'package:bogdashka/api/http.dart';
 import 'package:bogdashka/controllers/Settings.controller.dart';
 import 'package:bogdashka/models/CheckUserGroup.dart';
 import 'package:bogdashka/models/GroupPay.dart';
-import 'package:bogdashka/service/Comerce.dart';
+import 'package:bogdashka/service/Comerce_service.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher.dart';
 

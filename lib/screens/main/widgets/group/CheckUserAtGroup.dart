@@ -5,7 +5,7 @@ import 'package:bogdashka/components/widgets/Liner.dart';
 import 'package:bogdashka/controllers/GroupPayment.controller.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/models/CheckUserGroup.dart';
-import 'package:bogdashka/service/Comerce.dart';
+import 'package:bogdashka/service/Comerce_service.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher.dart';

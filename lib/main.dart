@@ -6,14 +6,12 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'components/widgets/Notification.dart';
 
-import 'controllers/LocalisationAppService.dart';
 import 'helper/Theme.dart';
 
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
 void main() async {
   await GetStorage.init();
-  await LocalisationApp.init();
   await Firebase.initializeApp();
 
   WidgetsFlutterBinding.ensureInitialized();

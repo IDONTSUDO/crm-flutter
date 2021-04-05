@@ -1,4 +1,4 @@
-import 'package:bogdashka/service/router.service.dart';
+import 'package:bogdashka/service/Router.service.dart';
 import 'package:flutter/material.dart';
 
 import '../main.dart';
