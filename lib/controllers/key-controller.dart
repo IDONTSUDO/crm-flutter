@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bogdashka/components/calculated/calculator-key.dart';
+import 'package:bogdashka/screens/main/widgets/calculated/calculator-key.dart';
 
 class KeyEvent {
   KeyEvent(this.key);

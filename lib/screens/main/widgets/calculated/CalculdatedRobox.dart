@@ -1,16 +1,17 @@
 import 'dart:async';
 
 import 'package:bogdashka/components/TextLayouth4.dart';
-import 'package:bogdashka/components/calculated/display.dart';
-import 'package:bogdashka/components/calculated/processor.dart';
+
 import 'package:bogdashka/controllers/key-controller.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/main.dart';
 import 'package:bogdashka/models/CalclutedRobox.dart';
 import 'package:bogdashka/service/CalculatorRobox_service.dart';
+import 'package:bogdashka/service/processor.dart';
 import 'package:flutter/material.dart';
 
-import '../../enums.dart';
+import '../../../../enums.dart';
+import 'display.dart';
 import 'key-pad.dart';
 
 // CalculdatedRobox

@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:bogdashka/controllers/key-controller.dart';
 
-import 'calculator-key.dart';
-import 'key-symbol.dart';
+import '../screens/main/widgets/calculated/calculator-key.dart';
+import '../screens/main/widgets/calculated/key-symbol.dart';
 
 abstract class Processor {
   static KeySymbol _operator;

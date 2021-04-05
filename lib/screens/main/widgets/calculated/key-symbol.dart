@@ -1,4 +1,4 @@
-import 'package:bogdashka/components/calculated/calculator-key.dart';
+import 'calculator-key.dart';
 
 enum KeyType { FUNCTION, OPERATOR, INTEGER }
 

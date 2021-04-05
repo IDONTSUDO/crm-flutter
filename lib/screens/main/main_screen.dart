@@ -1,5 +1,4 @@
 import 'package:bogdashka/components/MainScalford.dart';
-import 'package:bogdashka/components/calculated/CalculdatedRobox.dart';
 import 'package:bogdashka/components/widgets/AnimatedBackground.dart';
 import 'package:bogdashka/components/widgets/Liner.dart';
 import 'package:bogdashka/components/widgets/SmoothScroll.dart';
