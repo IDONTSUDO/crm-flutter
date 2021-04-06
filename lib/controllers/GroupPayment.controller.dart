@@ -30,10 +30,9 @@ class GroupPayment {
     _subject.add(GroupPaymentSteps.CHECK_USER_AT_GROUP);
     var listGroup = await restProvider.checkUserAtGroup(nickName);
     if (listGroup != null) {
-      final List<IcheckUserGroup> groups = [];
+      final List<PayProcess> groups = [];
       listGroup.forEach((element) {
-        var userGroup = IcheckUserGroup.fromJson(element);
-        groups.add(userGroup);
+        var userGroup = PayProcess.fromJson(element);
         groups.add(userGroup);
       });
       _groupCheck.add(UserGroupPay(group: groups, comercePay: comercePay));

@@ -52,7 +52,7 @@ AppBar appBarMainScreen(BuildContext context) {
                   children: [
                     Spacer(),
                     Text(
-                      'message',
+                      'ОТЗЫВЫ',
                       style: TextStyle(
                           color: Theme.of(context).accentColor, fontSize: 13),
                     ),
@@ -67,7 +67,6 @@ AppBar appBarMainScreen(BuildContext context) {
           ),
         ),
         Spacer(),
-        // ВЫБЕРЕТЕ РЕЖИМ
         // SwitcherTheme(),
         Container(
           margin: EdgeInsets.only(left: 10.0, right: 10.0),

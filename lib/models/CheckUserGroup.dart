@@ -2,15 +2,14 @@ import 'dart:convert';
 
 import 'package:bogdashka/service/Comerce_service.dart';
 
-List<IcheckUserGroup> icheckUserGroupFromJson(String str) =>
-    List<IcheckUserGroup>.from(
-        json.decode(str).map((x) => IcheckUserGroup.fromJson(x)));
+List<PayProcess> PayProcessFromJson(String str) =>
+    List<PayProcess>.from(json.decode(str).map((x) => PayProcess.fromJson(x)));
 
-String icheckUserGroupToJson(List<IcheckUserGroup> data) =>
+String PayProcessToJson(List<PayProcess> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class IcheckUserGroup {
-  IcheckUserGroup({
+class PayProcess {
+  PayProcess({
     this.id,
     this.roboxId,
     this.status,
@@ -24,8 +23,7 @@ class IcheckUserGroup {
   String url;
   int balance;
 
-  factory IcheckUserGroup.fromJson(Map<String, dynamic> json) =>
-      IcheckUserGroup(
+  factory PayProcess.fromJson(Map<String, dynamic> json) => PayProcess(
         id: json["id"],
         roboxId: json["roboxId"],
         status: json["status"],
@@ -43,7 +41,7 @@ class IcheckUserGroup {
 }
 
 class UserGroupPay {
-  List<IcheckUserGroup> group;
+  List<PayProcess> group;
   ComercePay comercePay;
   UserGroupPay({this.group, this.comercePay});
 }

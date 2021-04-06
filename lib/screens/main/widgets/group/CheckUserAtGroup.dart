@@ -1,22 +1,22 @@
-import 'package:bogdashka/components/TextLayouth1.dart';
-import 'package:bogdashka/components/TextLayouth3.dart';
 import 'package:bogdashka/components/TextLayouth4.dart';
-import 'package:bogdashka/components/widgets/Liner.dart';
 import 'package:bogdashka/controllers/GroupPayment.controller.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/models/CheckUserGroup.dart';
+import 'package:bogdashka/screens/main/widgets/group/GroupPaySuccessfully.dart';
 import 'package:bogdashka/service/Comerce_service.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../enums.dart';
 import '../../../../main.dart';
+import 'GroupPayFailure.dart';
+import 'GroupPayPartial.dart';
+import 'common.dart';
 
 class CheckUserAtGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
+      height: 470,
       width: 350,
       child: StreamBuilder<UserGroupPay>(
           stream: groupPayment.groupCheck,
@@ -24,40 +24,44 @@ class CheckUserAtGroup extends StatelessWidget {
             if (snapshot.data == null) {
               return buildLoadingWidget();
             } else {
-              final groupCheck = snapshot.data.group;
-              if (groupModeAtUser(groupCheck)) {
-                return Container(
-                  child: Text('123'),
-                );
-              } else {
-                return Container(
-                  height: 600,
-                  child: ListView(
-                    children: [
-                      giveFidbackOnPurshase(
-                          groupCheck, snapshot.data.comercePay),
-                      Liner(),
-                      Center(
-                        child: Text(
-                          'Список групп куда нужно вступить',
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        ),
-                      ),
-                      for (IcheckUserGroup group in groupCheck)
-                        group.status ? (Container()) : (UserGroupBuilder(group))
-                    ],
-                  ),
-                );
-              }
+              // TODO: ЭТО НУЖНО РЕФАКТОРИТЬ
+              return groupPayStep(snapshot.data, context);
             }
           }),
     );
   }
 }
 
+Widget groupPayStep(UserGroupPay payProcess, BuildContext context) {
+  final List<PayProcess> group = payProcess.group;
+  int payRobox = payProcess.comercePay.getUserPayInt();
+  int userAvaliebelRobox =
+      int.parse(groupAllBalanceAtUserToPosible(payProcess.group));
+
+  if (isGroupPayPartial(payProcess.group)) {
+    return GroupPayFailure(group);
+  }
+  if (userAvaliebelRobox - payRobox > 0) {
+    return GroupPaySuccessfully(payProcess);
+  } else {
+    return GroupPayPartial(payProcess);
+  }
+  return Text('Error');
+}
+
+bool isGroupPayPartial(List<PayProcess> listGroup) {
+  bool status = true;
+  listGroup.forEach((element) {
+    if (element.status) {
+      status = false;
+    }
+  });
+  return status;
+}
+
 class UserGroupBuilder extends StatelessWidget {
-  IcheckUserGroup checkUserGroup;
-  UserGroupBuilder(IcheckUserGroup this.checkUserGroup);
+  PayProcess checkUserGroup;
+  UserGroupBuilder(PayProcess this.checkUserGroup);
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(4),
@@ -92,7 +96,7 @@ class UserGroupBuilder extends StatelessWidget {
   }
 }
 
-bool groupModeAtUser(List<IcheckUserGroup> groups) {
+bool groupModeAtUser(List<PayProcess> groups) {
   bool statusView = true;
   groups.forEach((element) {
     if (element.status == false) {
@@ -103,8 +107,7 @@ bool groupModeAtUser(List<IcheckUserGroup> groups) {
   return statusView;
 }
 
-Widget giveFidbackOnPurshase(
-    List<IcheckUserGroup> groups, ComercePay comercePay) {
+Widget giveFidbackOnPurshase(List<PayProcess> groups, ComercePay comercePay) {
   int userAtPay = comercePay.getUserRoboxAtPay();
   double availebleBalance = calculatingTheAvailableBalance(groups);
   if (availebleBalance < userAtPay) {
@@ -199,7 +202,7 @@ Widget giveFidbackOnPurshase(
   }
 }
 
-double calculatingTheAvailableBalance(List<IcheckUserGroup> groups) {
+double calculatingTheAvailableBalance(List<PayProcess> groups) {
   double balance = 0;
   groups.forEach((element) {
     if (element.status) {

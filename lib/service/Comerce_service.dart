@@ -126,12 +126,17 @@ class ComercePay {
     return computedRoboxAsSum(payParse);
   }
 
+  int getUserPayInt() {
+    final String pay = yourAtPayTextController.text;
+    return int.tryParse(pay);
+  }
+
   double getUserPay() {
     final String pay = yourGetPayTextController.text;
     return double.tryParse(pay);
   }
 
-  bool groupModeAtUser(List<IcheckUserGroup> groups) {
+  bool groupModeAtUser(List<PayProcess> groups) {
     bool statusView = true;
     groups.forEach((element) {
       if (element.status == false) {
@@ -143,6 +148,14 @@ class ComercePay {
   }
 
   void setSumRoboxAndBeginPay(double availebleBalance) {
+    GroupPay payData = GroupPay(
+        userLogin: loginTextContrleer.text,
+        amount: availebleBalance,
+        sessionId: '');
+    groupPayment.groupPay(payData);
+  }
+
+  void roboxGroupPay() {
     GroupPay payData = GroupPay(
         userLogin: loginTextContrleer.text,
         amount: double.tryParse(yourGetPayTextController.text),
