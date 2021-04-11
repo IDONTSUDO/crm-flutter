@@ -7,6 +7,10 @@ import 'package:bogdashka/screens/main/widgets/group/GroupCardBody.dart';
 import 'package:bogdashka/screens/main/widgets/log_pass/LogPassCardBody.dart';
 import 'package:flutter/material.dart';
 
+import 'Service.techJob.dart';
+import 'log_pass/LogPassCardBodyV1.dart';
+import 'transfer/TransferCardBody.dart';
+
 // ignore: must_be_immutable
 class BuyRoboxStep extends StatelessWidget {
   double setingGrroup;
@@ -98,7 +102,7 @@ class BuyRoboxStep extends StatelessWidget {
                       '1р = $settingLogPass R\$',
                       '3.569 R\$ доступно',
                     ),
-                    onTap: () => {_showDialog(context, LogPassCardBody())},
+                    onTap: () => {_showDialog(context, LogPassCardBodyV1())},
                   ),
                 ),
                 Container(
@@ -116,7 +120,7 @@ class BuyRoboxStep extends StatelessWidget {
                       '1р = $settingsTransfer R\$',
                       '3.569 R\$ доступно',
                     ),
-                    onTap: () => {_showDialog(context, GroupCard())},
+                    onTap: () => {_showDialog(context, ServiceTechJob())},
                   ),
                 ),
                 Container(

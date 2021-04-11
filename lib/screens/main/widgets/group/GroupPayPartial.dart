@@ -93,7 +93,7 @@ class GroupPayPartial extends StatelessWidget {
                       ),
                       onTap: () {
                         payProcess.comercePay.setSumRoboxAndBeginPay(
-                            double.parse(availebleBalance));
+                            double.parse(availebleBalance), payProcess.group);
                       },
                     ),
                   ),

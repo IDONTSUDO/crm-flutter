@@ -1,4 +1,4 @@
-import 'package:bogdashka/components/TextLayouth1.dart';
+import 'package:bogdashka/components/TextLayout1.dart';
 import 'package:flutter/material.dart';
 
 import '../../enums.dart';

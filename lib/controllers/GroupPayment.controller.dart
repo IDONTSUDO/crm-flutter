@@ -36,7 +36,9 @@ class GroupPayment {
         groups.add(userGroup);
       });
       _groupCheck.add(UserGroupPay(group: groups, comercePay: comercePay));
-    } else {}
+    } else {
+      _groupCheck.addError('');
+    }
   }
 
   void groupPay(GroupPay payData) async {

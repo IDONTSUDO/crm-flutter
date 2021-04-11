@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         navigatorObservers: [routeObserver],
         routes: mainRouter,
-        title: 'BOGDA\$HKA | Купить робуксы',
+        title: r'BOGDA$HKA | Купить робуксы',
         theme: themeData(context),
         themeMode: ThemeMode.dark,
         darkTheme: darkThemeData(context),

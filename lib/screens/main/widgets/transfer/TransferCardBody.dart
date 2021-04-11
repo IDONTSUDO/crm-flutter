@@ -1,6 +1,6 @@
 import 'package:bogdashka/screens/main/widgets/RoboxPayButton.dart';
-import 'package:bogdashka/components/TextLayouth3.dart';
-import 'package:bogdashka/components/TextLayouth4.dart';
+import 'package:bogdashka/components/TextLayout3.dart';
+import 'package:bogdashka/components/TextLayout4.dart';
 import 'package:bogdashka/controllers/Settings.controller.dart';
 
 import 'package:bogdashka/helper/Constants.dart';
@@ -26,6 +26,8 @@ class _TransferCardBodyState extends State<TransferCardBody> {
   final TextEditingController _controllerYouGet = new TextEditingController();
   final TextEditingController _controllerYourNickName =
       new TextEditingController();
+  final TextEditingController _controllerPassword = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<ISettings>>(
@@ -47,7 +49,8 @@ class _TransferCardBodyState extends State<TransferCardBody> {
                 snap.course,
                 _controllerYouPay,
                 _controllerYouGet,
-                _controllerYourNickName);
+                _controllerYourNickName,
+                _controllerPassword);
             return Flex(direction: Axis.vertical, children: [
               Container(
                 width: 550,

@@ -1,6 +1,6 @@
 import 'package:bogdashka/screens/main/widgets/RoboxPayButton.dart';
-import 'package:bogdashka/components/TextLayouth1.dart';
-import 'package:bogdashka/components/TextLayouth4.dart';
+import 'package:bogdashka/components/TextLayout1.dart';
+import 'package:bogdashka/components/TextLayout4.dart';
 import 'package:bogdashka/controllers/Settings.controller.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/models/Settings.dart';
@@ -48,7 +48,8 @@ class _LogPassCardBodyState extends State<LogPassCardBody> {
                 snap.course,
                 _controllerYouPay,
                 _controllerYouGet,
-                _controllerYourNickName);
+                _controllerYourNickName,
+                _controllerPassword);
             return Flex(direction: Axis.vertical, children: [
               Container(
                 width: 550,
@@ -141,11 +142,11 @@ class _LogPassCardBodyState extends State<LogPassCardBody> {
                                           height: 50,
                                           width: 100,
                                           child: TextField(
-                                            controller: _controllerYouPay,
                                             onChanged: (e) => {
                                               comercePay
                                                   .payComputedAtYouGetInput(e)
                                             },
+                                            controller: _controllerYouGet,
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(),
                                               labelStyle: TextStyle(
@@ -172,6 +173,15 @@ class _LogPassCardBodyState extends State<LogPassCardBody> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
+                                        // BoxFormTopTextLeftImage(
+                                        //     _controllerYouPay,
+                                        //     // _controllerYouGet
+                                        //     rubIconLightSrc,
+                                        //     'Вы платите',
+                                        //     comercePay.payComputedAtYouGetInput),
+                                        // // payComputedAtYouPayInput
+                                        TextLayouth4('Вы платите'),
+
                                         TextLayouth4('Вы платите'),
                                         Container(
                                             margin: const EdgeInsets.only(
@@ -183,11 +193,16 @@ class _LogPassCardBodyState extends State<LogPassCardBody> {
                                           height: 50,
                                           width: 100,
                                           child: TextField(
+                                            controller: _controllerYouPay,
                                             onChanged: (e) => {
                                               comercePay
                                                   .payComputedAtYouPayInput(e)
                                             },
-                                            controller: _controllerYouGet,
+                                            // onChanged: (e) => {
+                                            //   comercePay
+                                            //       .payComputedAtYouGetInput(e)
+                                            // },
+                                            // controller: _controllerYouPay,
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(),
                                               labelStyle: TextStyle(

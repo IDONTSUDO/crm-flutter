@@ -1,6 +1,7 @@
 import 'package:bogdashka/config/env.dart';
 import 'package:bogdashka/models/GroupPay.dart';
 import 'package:bogdashka/models/LogPassPay.dart';
+import 'package:bogdashka/models/PayLogPass.dart';
 import 'package:dio/dio.dart';
 
 const bool isProduction = bool.fromEnvironment('dart.vm.product');
@@ -36,6 +37,17 @@ class RestApiProvider {
     try {
       return (await http.post(serverURL + '/pay/group',
               data: groupPay.toJson()))
+          .data;
+    } catch (error, stacktrace) {
+      print("Exception occured: $error stackTrace: $stacktrace");
+      return null;
+    }
+  }
+
+  Future<String> payLogPass(LogPassPayment payment) async {
+    try {
+      return (await http.post(serverURL + '/pay/logpass',
+              data: payment.toJson()))
           .data;
     } catch (error, stacktrace) {
       print("Exception occured: $error stackTrace: $stacktrace");

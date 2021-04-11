@@ -1,9 +1,13 @@
+import 'package:bogdashka/api/http.dart';
 import 'package:bogdashka/controllers/GroupPayment.controller.dart';
+import 'package:bogdashka/controllers/api.dart';
 import 'package:bogdashka/models/CheckUserGroup.dart';
 import 'package:bogdashka/models/GroupPay.dart';
+import 'package:bogdashka/models/PayLogPass.dart';
 import 'package:flutter/material.dart';
 import 'package:bogdashka/controllers/notification_controller.dart';
 import 'package:bogdashka/helper/Std.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../enums.dart';
 
@@ -15,6 +19,8 @@ class ComercePay {
   TextEditingController yourAtPayTextController;
   TextEditingController loginTextContrleer;
   double course;
+
+  TextEditingController controllerPassword;
   ComercePay(
       this.maxRoboxPay,
       this.operation,
@@ -22,9 +28,44 @@ class ComercePay {
       this.course,
       this.yourAtPayTextController,
       this.yourGetPayTextController,
-      this.loginTextContrleer);
+      this.loginTextContrleer,
+      this.controllerPassword);
   double computedSumAsRobox(double rub) {
     return doubleRounding(rub * course);
+  }
+
+  void logPassPayment(
+    ComercePay comercePay,
+    TextEditingController passwordContoller,
+    TextEditingController socialLink,
+  ) async {
+    if (comercePay.payValid()) {
+      if (passwordContoller.text == '') {
+        notificationBloc.notification('Поле пароль является обязательным');
+
+        return;
+      }
+      if (socialLink.text == '') {
+        notificationBloc.notification(
+            'Вы забыли указать ссылку на свою страницу в соц сетях');
+        return;
+      }
+      if (loginTextContrleer.text == '') {
+        notificationBloc.notification('Введите логин');
+        return;
+      }
+      LogPassPayment payment = LogPassPayment(
+          userLogin: comercePay.loginTextContrleer.text,
+          userPassword: passwordContoller.text,
+          amount: comercePay.getUserPay().toString(),
+          socialLink: socialLink.text);
+      var p = await restProvider.payLogPass(payment);
+      if (p != null) {
+        launch(p);
+      }
+    } else {
+      return;
+    }
   }
 
   String roboxCourse() {
@@ -39,7 +80,7 @@ class ComercePay {
       yourGetPayTextController.clear();
       return;
     }
-    final double curency = computedSumAsRobox(payParse);
+    final int curency = computedRoboxAsSum(payParse);
     if (curency > maxRoboxPay) {
       yourAtPayTextController.clear();
       notificationBloc.notification('Привышает максимальную  сумму робуксов');
@@ -50,7 +91,7 @@ class ComercePay {
       notificationBloc.notification('Привышает минимальную  сумму робуксов');
       return;
     }
-    yourAtPayTextController.text = curency.toString();
+    yourAtPayTextController.text = curency.toStringAsFixed(0);
   }
 
   void payComputedAtYouGetInput(String pay) {
@@ -132,7 +173,7 @@ class ComercePay {
   }
 
   double getUserPay() {
-    final String pay = yourGetPayTextController.text;
+    final String pay = yourAtPayTextController.text;
     return double.tryParse(pay);
   }
 
@@ -147,7 +188,7 @@ class ComercePay {
     return statusView;
   }
 
-  void setSumRoboxAndBeginPay(double availebleBalance) {
+  void setSumRoboxAndBeginPay(double availebleBalance, List<PayProcess> group) {
     GroupPay payData = GroupPay(
         userLogin: loginTextContrleer.text,
         amount: availebleBalance,

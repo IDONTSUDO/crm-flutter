@@ -1,4 +1,4 @@
-import 'package:bogdashka/components/TextLayouth4.dart';
+import 'package:bogdashka/components/TextLayout4.dart';
 import 'package:bogdashka/components/widgets/Navigator.animation.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:flutter/material.dart';

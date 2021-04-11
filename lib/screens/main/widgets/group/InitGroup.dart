@@ -1,4 +1,4 @@
-import 'package:bogdashka/components/TextLayouth1.dart';
+import 'package:bogdashka/components/TextLayout1.dart';
 import 'package:bogdashka/components/loader.dart';
 import 'package:bogdashka/components/widgets/BoxFormTopTextLeftImage.dart';
 import 'package:bogdashka/components/widgets/BoxFornTopText.dart';
@@ -22,6 +22,9 @@ class InitGroup extends StatelessWidget {
     final TextEditingController _controllerYouGet = new TextEditingController();
     final TextEditingController _controllerNickname =
         new TextEditingController();
+    final TextEditingController _controllerPassword =
+        new TextEditingController();
+
     ComercePay comercePay;
     return StreamBuilder<List<ISettings>>(
         stream: settingsController.subject,
@@ -42,7 +45,8 @@ class InitGroup extends StatelessWidget {
                 snap.course,
                 _controllerYouPay,
                 _controllerYouGet,
-                _controllerNickname);
+                _controllerNickname,
+                _controllerPassword);
             return Flex(
                 mainAxisAlignment: MainAxisAlignment.start,
                 direction: Axis.vertical,
@@ -86,15 +90,19 @@ class InitGroup extends StatelessWidget {
                                 BoxFormTopText(_controllerNickname,
                                     'Введите никнейм', eqw),
                                 BoxFormTopTextLeftImage(
-                                    _controllerYouPay,
+                                    _controllerYouGet,
+                                    // _controllerYouPay
                                     roboxIconLightSrc,
                                     'Вы получайте',
-                                    comercePay.payComputedAtYouGetInput),
+                                    comercePay.payComputedAtYouPayInput),
+                                // payComputedAtYouGetInput
                                 BoxFormTopTextLeftImage(
-                                    _controllerYouGet,
+                                    _controllerYouPay,
+                                    // _controllerYouGet
                                     rubIconLightSrc,
                                     'Вы платите',
-                                    comercePay.payComputedAtYouPayInput),
+                                    comercePay.payComputedAtYouGetInput),
+                                // payComputedAtYouPayInput
                                 Spacer(),
                                 Container(
                                   decoration: BoxDecoration(

@@ -1,16 +1,17 @@
-import 'package:bogdashka/components/TextLayouth4.dart';
+import 'package:bogdashka/components/TextLayout4.dart';
 import 'package:bogdashka/controllers/GroupPayment.controller.dart';
+import 'package:bogdashka/controllers/notification_controller.dart';
 import 'package:bogdashka/helper/Constants.dart';
 import 'package:bogdashka/models/CheckUserGroup.dart';
 import 'package:bogdashka/screens/main/widgets/group/GroupPaySuccessfully.dart';
 import 'package:bogdashka/service/Comerce_service.dart';
 import 'package:flutter/material.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../main.dart';
 import 'GroupPayFailure.dart';
 import 'GroupPayPartial.dart';
+import 'InitGroup.dart';
 import 'common.dart';
 
 class CheckUserAtGroup extends StatelessWidget {
@@ -21,6 +22,10 @@ class CheckUserAtGroup extends StatelessWidget {
       child: StreamBuilder<UserGroupPay>(
           stream: groupPayment.groupCheck,
           builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              notificationBloc.notification('Пользователь не найден');
+              return InitGroup();
+            }
             if (snapshot.data == null) {
               return buildLoadingWidget();
             } else {
@@ -46,7 +51,6 @@ Widget groupPayStep(UserGroupPay payProcess, BuildContext context) {
   } else {
     return GroupPayPartial(payProcess);
   }
-  return Text('Error');
 }
 
 bool isGroupPayPartial(List<PayProcess> listGroup) {
@@ -157,7 +161,7 @@ Widget giveFidbackOnPurshase(List<PayProcess> groups, ComercePay comercePay) {
                   ],
                 ),
                 onTap: () {
-                  comercePay.setSumRoboxAndBeginPay(availebleBalance);
+                  comercePay.setSumRoboxAndBeginPay(availebleBalance, groups);
                 },
               ),
             )
@@ -194,7 +198,7 @@ Widget giveFidbackOnPurshase(List<PayProcess> groups, ComercePay comercePay) {
             ],
           ),
           onTap: () {
-            comercePay.setSumRoboxAndBeginPay(availebleBalance);
+            comercePay.setSumRoboxAndBeginPay(availebleBalance, groups);
           },
         ),
       )

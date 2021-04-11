@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bogdashka/components/TextLayouth4.dart';
+import 'package:bogdashka/components/TextLayout4.dart';
 
 import 'package:bogdashka/controllers/key-controller.dart';
 import 'package:bogdashka/helper/Constants.dart';

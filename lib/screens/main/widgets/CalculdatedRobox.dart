@@ -1,4 +1,4 @@
-import 'package:bogdashka/components/TextLayouth1.dart';
+import 'package:bogdashka/components/TextLayout1.dart';
 import 'package:bogdashka/components/widgets/BoxFornTopText.dart';
 import 'package:bogdashka/components/widgets/BoxFromTextLeft.dart';
 import 'package:flutter/material.dart';
